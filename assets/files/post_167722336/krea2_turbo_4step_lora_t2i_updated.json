@@ -1,0 +1,927 @@
+{
+  "id": "00000000-0000-0000-0000-000004ea24e7",
+  "revision": 0,
+  "last_node_id": 19,
+  "last_link_id": 21,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        36.8918008431804,
+        595.8814309201396
+      ],
+      "size": [
+        370,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_vae.safetensors"
+      }
+    },
+    {
+      "id": 5,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        450,
+        300
+      ],
+      "size": [
+        430,
+        30
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "ConditioningZeroOut"
+      }
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        450,
+        380
+      ],
+      "size": [
+        430,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 11
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 3,
+      "type": "CLIPLoader",
+      "pos": [
+        36.8918008431804,
+        445.8814309201392
+      ],
+      "size": [
+        370,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_4b_fp8_scaled.safetensors",
+        "krea2",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+        "type": "krea2",
+        "device": "default"
+      }
+    },
+    {
+      "id": 12,
+      "type": "ResolutionSelector",
+      "pos": [
+        460.1022636778416,
+        539.9610871971688
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "ResolutionSelector",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "1:1 (Square)",
+        1,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "1:1 (Square)",
+        "megapixels": 1,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 2,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        36.8918008431804,
+        315.88143092013917
+      ],
+      "size": [
+        370,
+        82
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "krea2_turbo_4step_rank_64_lora_latest_comfyui.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "krea2_turbo_4step_rank_64_lora_latest_comfyui.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 13,
+      "type": "UNETLoader",
+      "pos": [
+        97.66892618465866,
+        -26.912702545490763
+      ],
+      "size": [
+        261.03710503798334,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.25.0",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "krea2_turbo_fp8.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "krea2_turbo_fp8.safetensors",
+        "weight_dtype": "default"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 14,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        95.14281061896041,
+        154.6694989893722
+      ],
+      "size": [
+        259.1987351472012,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-gguf",
+        "ver": "1.1.10",
+        "Node name for S&R": "UnetLoaderGGUF",
+        "aux_id": "city96/ComfyUI-GGUF"
+      },
+      "widgets_values": [
+        "krea2_turbo-Q4_0.gguf"
+      ],
+      "widgets_values_named": {
+        "unet_name": "krea2_turbo-Q4_0.gguf"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 15,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        140.97577700532523,
+        274.0927723642012
+      ],
+      "size": [
+        263.6999908447266,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "MODEL",
+          "link": 13
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "MODEL",
+          "link": 14
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "name": "any_05",
+          "type": "MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "MODEL",
+          "name": "*",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "title": "model Switcher",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2605082257",
+        "aux_id": "rgthree/rgthree-comfy"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 16,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -295.2537995796925,
+        133.89989510836384
+      ],
+      "size": [
+        304.4618632904122,
+        89.51735326098796
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Model and Reference Image Selector",
+      "properties": {
+        "matchColors": "black",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 17,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1166.537113731296,
+        -45.812412315272304
+      ],
+      "size": [
+        336.8724079510855,
+        59.06144201193416
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "2xLexicaRRDBNet_Sharp.pth"
+      ],
+      "widgets_values_named": {
+        "model_name": "2xLexicaRRDBNet_Sharp.pth"
+      }
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        1300,
+        60
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 8
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        930,
+        60
+      ],
+      "size": [
+        330,
+        262
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        781443494969431,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 781443494969431,
+        "control_after_generate": "randomize",
+        "steps": 4,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 18,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1524.4218330679516,
+        55.02677606183873
+      ],
+      "size": [
+        233.5689453125,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 16
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "ImageUpscaleWithModel"
+      }
+    },
+    {
+      "id": 19,
+      "type": "SaveImage",
+      "pos": [
+        1289.263228118537,
+        156.4420862577549
+      ],
+      "size": [
+        467.778924201516,
+        477.4825522030095
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "ComfyUI"
+      }
+    },
+    {
+      "id": 11,
+      "type": "MarkdownNote",
+      "pos": [
+        -551.4189942533964,
+        284.69121491166027
+      ],
+      "size": [
+        560,
+        400
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Krea 2 Turbo — 4-Step Distillation LoRA\n\nKrea 2 Turbo normally needs **8 steps**. With this community-trained LoRA it runs at **4** — roughly a 1.6-1.8x speedup end to end — while keeping most of the quality.\n\nLoRA by **lvladikov**: https://huggingface.co/lvladikov/Krea2-Turbo-Distill-4step-LoRA\n\n### Files (this workflow's defaults)\n| file | put it in |\n| --- | --- |\n| `krea2_turbo_fp8.safetensors` (or a GGUF quant) | `models/diffusion_models/` (GGUF → `models/unet/`) |\n| `qwen3vl_4b_fp8_scaled.safetensors` | `models/text_encoders/` |\n| `qwen_image_vae.safetensors` | `models/vae/` |\n| `krea2_turbo_4step_rank_64_lora_latest_comfyui.safetensors` | `models/loras/` |\n\nThe first three are the standard Krea 2 companions from [Comfy-Org/Krea-2](https://huggingface.co/Comfy-Org/Krea-2). Set the CLIPLoader **type to `krea2`**.\n\n### Base model is your choice\nThe LoRA is applied on top of the diffusion model by ComfyUI's loader, so it works the same on any Krea 2 Turbo build. This workflow ships an **FP8** default (NVIDIA) plus a **GGUF loader path** for lower VRAM — switch between them with the model Switcher. Use whichever fits your hardware and leave the rest of the workflow alone.\n\n### Settings that matter\n- **steps 4**, **cfg 1.0** (Turbo is CFG-free), sampler **euler**, scheduler **simple**\n- LoRA strength **1.0**\n- The negative is a `ConditioningZeroOut` — at cfg 1.0 it isn't evaluated, so nothing goes in it\n- To compare against stock Turbo: set steps to 8 and bypass the LoRA node (Ctrl+B)\n\n### Work in progress\nThe LoRA is an ongoing training run. The workflow points at `..._latest_comfyui.safetensors`, which always holds the newest published checkpoint — just re-download that one file to stay current, no workflow edit needed. Numbered copies are kept on the repo if you want to pin a specific checkpoint. Full details and evaluation on lvladikov's repo."
+      ],
+      "widgets_values_named": {
+        "text": "## Krea 2 Turbo — 4-Step Distillation LoRA\n\nKrea 2 Turbo normally needs **8 steps**. With this community-trained LoRA it runs at **4** — roughly a 1.6-1.8x speedup end to end — while keeping most of the quality.\n\nLoRA by **lvladikov**: https://huggingface.co/lvladikov/Krea2-Turbo-Distill-4step-LoRA\n\n### Files (this workflow's defaults)\n| file | put it in |\n| --- | --- |\n| `krea2_turbo_fp8.safetensors` (or a GGUF quant) | `models/diffusion_models/` (GGUF → `models/unet/`) |\n| `qwen3vl_4b_fp8_scaled.safetensors` | `models/text_encoders/` |\n| `qwen_image_vae.safetensors` | `models/vae/` |\n| `krea2_turbo_4step_rank_64_lora_latest_comfyui.safetensors` | `models/loras/` |\n\nThe first three are the standard Krea 2 companions from [Comfy-Org/Krea-2](https://huggingface.co/Comfy-Org/Krea-2). Set the CLIPLoader **type to `krea2`**.\n\n### Base model is your choice\nThe LoRA is applied on top of the diffusion model by ComfyUI's loader, so it works the same on any Krea 2 Turbo build. This workflow ships an **FP8** default (NVIDIA) plus a **GGUF loader path** for lower VRAM — switch between them with the model Switcher. Use whichever fits your hardware and leave the rest of the workflow alone.\n\n### Settings that matter\n- **steps 4**, **cfg 1.0** (Turbo is CFG-free), sampler **euler**, scheduler **simple**\n- LoRA strength **1.0**\n- The negative is a `ConditioningZeroOut` — at cfg 1.0 it isn't evaluated, so nothing goes in it\n- To compare against stock Turbo: set steps to 8 and bypass the LoRA node (Ctrl+B)\n\n### Work in progress\nThe LoRA is an ongoing training run. The workflow points at `..._latest_comfyui.safetensors`, which always holds the newest published checkpoint — just re-download that one file to stay current, no workflow edit needed. Numbered copies are kept on the repo if you want to pin a specific checkpoint. Full details and evaluation on lvladikov's repo."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        450,
+        60
+      ],
+      "size": [
+        430,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            4,
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "In this photograph Y3nnefer sits on a wooden chair in a dimly lit rustic room. She wears a black off-the-shoulder corset adorned with teal feathers and lace paired with thigh-high brown leather boots. Her expression is pensive with slightly parted lips and a focused gaze directed to the left. A black choker with a circular pendant rests around her neck. The background features a wooden table with a green plant and an open book and the wall is adorned with dried plants and a small window. The camera perspective is slightly low emphasizing her seated position and the texture of her clothing. Soft warm lighting highlights her features and the details of her outfit creating a moody atmospheric effect. <lora:Krea2Y3nnefer:1>"
+      ],
+      "widgets_values_named": {
+        "text": "In this photograph Y3nnefer sits on a wooden chair in a dimly lit rustic room. She wears a black off-the-shoulder corset adorned with teal feathers and lace paired with thigh-high brown leather boots. Her expression is pensive with slightly parted lips and a focused gaze directed to the left. A black choker with a circular pendant rests around her neck. The background features a wooden table with a green plant and an open book and the wall is adorned with dried plants and a small window. The camera perspective is slightly low emphasizing her seated position and the texture of her clothing. Soft warm lighting highlights her features and the details of her outfit creating a moody atmospheric effect. <lora:Krea2Y3nnefer:1>"
+      }
+    }
+  ],
+  "links": [
+    [
+      2,
+      2,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      4,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      4,
+      0,
+      5,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      5,
+      0,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      6,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      8,
+      7,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      1,
+      "VAE"
+    ],
+    [
+      11,
+      12,
+      0,
+      6,
+      0,
+      "INT"
+    ],
+    [
+      12,
+      12,
+      1,
+      6,
+      1,
+      "INT"
+    ],
+    [
+      13,
+      13,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      14,
+      14,
+      0,
+      15,
+      1,
+      "MODEL"
+    ],
+    [
+      15,
+      15,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      16,
+      17,
+      0,
+      18,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      19,
+      9,
+      0,
+      18,
+      1,
+      "IMAGE"
+    ],
+    [
+      21,
+      18,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Diffusion Model",
+      "bounding": [
+        80.39425025964138,
+        -99.79377377201804,
+        292.24914550781233,
+        170.29494341681976
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "GGUF",
+      "bounding": [
+        85.63727789061564,
+        83.12271936332189,
+        281.044598747702,
+        145.90866986442995
+      ],
+      "color": "#444",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5277831246002845,
+      "offset": [
+        660.2800244115025,
+        361.23676066598756
+      ]
+    },
+    "frontendVersion": "1.49.6"
+  },
+  "version": 0.4
+}

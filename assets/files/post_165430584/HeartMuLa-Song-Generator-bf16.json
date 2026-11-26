@@ -1,0 +1,495 @@
+{
+  "id": "f5e9f249-8a6f-4f4d-85c9-c2091edefb01",
+  "revision": 0,
+  "last_node_id": 25,
+  "last_link_id": 11,
+  "nodes": [
+    {
+      "id": 20,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1058.193725022149,
+        242.2723013864184
+      ],
+      "size": [
+        636.4763722815553,
+        261.5281773023071
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "[Intro]\n(Earl on the beat)\n\n[Verse 1: JT & Yung Miami]\nReal-ass bitch, give a fuck 'bout a nigga\nBig Birkin bag, hold five, six figures\nStripes on my ass so he call this pussy Tigger\nFuckin' on a scammin' ass, rich ass nigga\nSame group of bitches, ain't no adding to the picture\nDrop a couple racks, watch this ass get bigger\nDrinkin' on liquor, and I'm lookin' at your nigga\nIf his money right, he can eat it like a Snicker\nI ain't got time for you fake-ass hoes\nTalkin' all loud in them fake-ass clothes\nFake ass shoes match that fake-ass gold\nI'm the realest bitch ever to you snake-ass hoes\n\n[Chorus: JT & Yung Miami]\nAct up, you could get snatched up\nAct up, you could get snatched up\nAct up, you could get snatched up\nDirty-ass nails, baby girl, you need to back up\n\n[Verse 2: Yung Miami]\nIt's Yung Miami, and I came to run my sack up (Yup)\nTired-ass hoes on my page tryna track us (Ha)\nBrand new chain, City Girls goin' platinum (Facts)\nI keep a baby Glock, I ain't fightin' with no random, period (Period)\nYou bitches weak, is you serious? (Haha)\nI let him taste the pussy, now he actin' all delirious (Ow)\nDid the dash in the Rover like it's Fast and Furious\nShe see my number in his phone, now you actin' curious (Bitch)\nHe gon' buy me Gucci if I ask for it (Yup)\nHe a classy nigga rockin' Tom Ford (Classy)\nI bet your lil' sister wanna look like me (Lil' bitch)\nI bet your lil' brother wanna fuck on me\nHood bitch, good pussy, I ain't average, um\nHe can't come around without that cabbage, um (Nah)\nPop a pussy bitch quick, like a bubblegum\nI ain't never worry, I just deal with it for fun\nYou might also like\nSuburban Legends (Taylor’s Version) [From the Vault]\nTaylor Swift\nSo Long, London\nTaylor Swift\nTHE HEART PART 6\nDrake\n[Chorus: JT & Yung Miami]\nAct up, you could get snatched up\nAct up, you could get snatched up\nAct up, you could get snatched up\nDirty-ass nails, baby girl, you need to back up\n\n[Verse 3: JT]\nJT on the track, and you know I'm 'bout my paper\nPussy sweet, pussy tight, so he called it Lifesaver\nIf your ass a broke nigga, hell nah, I can't date ya\nIf your ass a rich nigga, I'ma fuck ya 'til you ain't one\nIf that nigga a scammer, I'm turnin' to a dancer (Yup)\nI make it clap like he got the right answer\nSit on it with manners, get it harder than a hammer\nHe wanna freak, pussy pink, breast cancer\nOh, you like big butts, well I like big bucks\nI don't care about your chain, nigga, or your big truck (Nah)\nYeah, I know you gettin' it, but is you spendin' it?\nGive a fuck what a nigga got if he ain't givin' it\nBa-badass bitch, bad attitude (Yeah)\nNails done, hair done, ass too (Ow)\nYour baby daddy fuckin' me and suckin' me\nHe don't answer you, bitch, that's because of me (Period)\n\n[Chorus: JT & Yung Miami]\nAct up, you could get snatched up\nAct up, you could get snatched up\nAct up, you could get snatched up\nDirty-ass nails, baby girl, you need to back up"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        -321.98182176650613,
+        323.41060626717757
+      ],
+      "size": [
+        263.72841796875,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "STRING",
+          "link": 7
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "STRING",
+          "link": 8
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "any_05",
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "STRING",
+          "name": "*",
+          "shape": 3,
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2607232129",
+        "aux_id": "rgthree/rgthree-comfy"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "HeartMuLaGenerator",
+      "pos": [
+        -324.06606655544715,
+        55.986195695665266
+      ],
+      "size": [
+        800,
+        800
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "HEARTMULA_PIPE",
+          "link": 1
+        },
+        {
+          "name": "lyrics",
+          "type": "STRING",
+          "widget": {
+            "name": "lyrics"
+          },
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "crazyma99/ComfyUI-HeartMuLa",
+        "ver": "a1e33eb01dbc1fcdd976a81f0fb4337794632133",
+        "Node name for S&R": "HeartMuLaGenerator"
+      },
+      "widgets_values": [
+        "",
+        "Female",
+        "None,hip hop",
+        "None",
+        "[Intro]\n(Earl on the beat)\n\n[Verse 1: JT & Yung Miami]\nReal-ass bitch, give a fuck 'bout a nigga\nBig Birkin bag, hold five, six figures\nStripes on my ass so he call this pussy Tigger\nFuckin' on a scammin' ass, rich ass nigga\nSame group of bitches, ain't no adding to the picture\nDrop a couple racks, watch this ass get bigger\nDrinkin' on liquor, and I'm lookin' at your nigga\nIf his money right, he can eat it like a Snicker\nI ain't got time for you fake-ass hoes\nTalkin' all loud in them fake-ass clothes\nFake ass shoes match that fake-ass gold\nI'm the realest bitch ever to you snake-ass hoes\n\n[Chorus: JT & Yung Miami]\nAct up, you could get snatched up\nAct up, you could get snatched up\nAct up, you could get snatched up\nDirty-ass nails, baby girl, you need to back up\n\n[Verse 2: Yung Miami]\nIt's Yung Miami, and I came to run my sack up (Yup)\nTired-ass hoes on my page tryna track us (Ha)\nBrand new chain, City Girls goin' platinum (Facts)\nI keep a baby Glock, I ain't fightin' with no random, period (Period)\nYou bitches weak, is you serious? (Haha)\nI let him taste the pussy, now he actin' all delirious (Ow)\nDid the dash in the Rover like it's Fast and Furious\nShe see my number in his phone, now you actin' curious (Bitch)\nHe gon' buy me Gucci if I ask for it (Yup)\nHe a classy nigga rockin' Tom Ford (Classy)\nI bet your lil' sister wanna look like me (Lil' bitch)\nI bet your lil' brother wanna fuck on me\nHood bitch, good pussy, I ain't average, um\nHe can't come around without that cabbage, um (Nah)\nPop a pussy bitch quick, like a bubblegum\nI ain't never worry, I just deal with it for fun\nYou might also like\nSuburban Legends (Taylor’s Version) [From the Vault]\nTaylor Swift\nSo Long, London\nTaylor Swift\nTHE HEART PART 6\nDrake\n[Chorus: JT & Yung Miami]\nAct up, you could get snatched up\nAct up, you could get snatched up\nAct up, you could get snatched up\nDirty-ass nails, baby girl, you need to back up\n\n[Verse 3: JT]\nJT on the track, and you know I'm 'bout my paper\nPussy sweet, pussy tight, so he called it Lifesaver\nIf your ass a broke nigga, hell nah, I can't date ya\nIf your ass a rich nigga, I'ma fuck ya 'til you ain't one\nIf that nigga a scammer, I'm turnin' to a dancer (Yup)\nI make it clap like he got the right answer\nSit on it with manners, get it harder than a hammer\nHe wanna freak, pussy pink, breast cancer\nOh, you like big butts, well I like big bucks\nI don't care about your chain, nigga, or your big truck (Nah)\nYeah, I know you gettin' it, but is you spendin' it?\nGive a fuck what a nigga got if he ain't givin' it\nBa-badass bitch, bad attitude (Yeah)\nNails done, hair done, ass too (Ow)\nYour baby daddy fuckin' me and suckin' me\nHe don't answer you, bitch, that's because of me (Period)\n\n[Chorus: JT & Yung Miami]\nAct up, you could get snatched up\nAct up, you could get snatched up\nAct up, you could get snatched up\nDirty-ass nails, baby girl, you need to back up",
+        "emotional, high quality",
+        240000,
+        50,
+        1,
+        1.5,
+        560980091046344,
+        "randomize"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "SaveAudioAdvanced",
+      "pos": [
+        532.4232914168384,
+        58.56855832677657
+      ],
+      "size": [
+        342.0151790902635,
+        136
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0"
+      },
+      "widgets_values": [
+        "audio/HeartMula",
+        "flac"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1034.9608143124713,
+        788.2325770155019
+      ],
+      "size": [
+        603.2893987529262,
+        255.97344879481022
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Let's get it It's lit Just take a look at the drip You boys gon' get fly off this Roll up, yeah I'm high as a bitch Wait, it's lit Gave that lil' bitch a lil' tip Now she wanna suck on the dick She wanna catch all of the drip Pull up and I'm loading the clip New bitch, yeah, stay on my hip Niggas talkin', they not with the shit Catch a body, you might just get hit But lately been all about drip New designer, just look at the fit And I just blew a bag on my bitch You got crop, but you don't got the drip You get money, that's some type of myth I can blind you, bitch, look at the wrist For that bag, then I might take a risk Don't get crushed, cause you care about a bitch Pass the Henny, I'm tryna get lit Tryna get out my body and shit Fuck around and start bodying shit Remember nights we was starvin' and shit You my brother, I got you, that's it We could never fall out by the bitch We was swimming with sharks and them fish In the field with them lions at pits Swear these niggas be lying and shit Talk of money, don't buy they own shit Baby mothers be buying them shit You not lit, you depend on the bitch Swear to God man, I'm clever as shit Still get trapped in the weather I'm in Throw me work and I'm making it flip With a whippin' you might just get sick Throw me extra, you know we gon' win Getting money, I've been doing this Since a youngin' I've been had to drip Make a movie, not talking to clips It's lit, just take a look at the drip You boys gon' get fly off this Roll the dope, yeah, I'm high as a bitch Wait, it's lit, gave that lil' bitch a lil' tip Now she wanna suck on the dick, she wanna catch all of the drip Yeah, yeah, yeah, yeah Peace"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "HeartMuLa_Transcribe",
+      "pos": [
+        -725.4961523362526,
+        614.086900694749
+      ],
+      "size": [
+        295.968359375,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio_input",
+          "type": "AUDIO",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "lyrics_text",
+          "type": "STRING",
+          "links": [
+            8,
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "HeartMuLa_ComfyUI",
+        "ver": "fdb53c41fd7cc21e281bd5f170bb360ae1daa3b9",
+        "Node name for S&R": "HeartMuLa_Transcribe"
+      },
+      "widgets_values": [
+        "0.0,0.1,0.2,0.4",
+        0.4,
+        -1
+      ]
+    },
+    {
+      "id": 17,
+      "type": "LoadAudio",
+      "pos": [
+        -1047.3274471208003,
+        601.5774844387067
+      ],
+      "size": [
+        282.798828125,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.29.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "REXXO - Its Lit.opus",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 23,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -327.01929751839015,
+        -78.19399368730166
+      ],
+      "size": [
+        312.78100149352315,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 13,
+      "type": "HeartMuLaLoader",
+      "pos": [
+        -912.918301153084,
+        -82.24890388919022
+      ],
+      "size": [
+        456.84589987744585,
+        226
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "HEARTMULA_PIPE",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "crazyma99/ComfyUI-HeartMuLa",
+        "ver": "a1e33eb01dbc1fcdd976a81f0fb4337794632133",
+        "Node name for S&R": "HeartMuLaLoader"
+      },
+      "widgets_values": [
+        "HeartMuLa-oss-3B-merged-bf16.safetensors",
+        "HeartCodec-oss-merged-fp16.safetensors",
+        "3B-merged",
+        "cuda",
+        "cuda",
+        "bfloat16",
+        "float16",
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      13,
+      0,
+      14,
+      0,
+      "HEARTMULA_PIPE"
+    ],
+    [
+      4,
+      17,
+      0,
+      16,
+      0,
+      "AUDIO"
+    ],
+    [
+      5,
+      14,
+      0,
+      21,
+      0,
+      "AUDIO"
+    ],
+    [
+      7,
+      20,
+      0,
+      24,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      16,
+      0,
+      24,
+      1,
+      "STRING"
+    ],
+    [
+      10,
+      24,
+      0,
+      14,
+      1,
+      "STRING"
+    ],
+    [
+      11,
+      16,
+      0,
+      25,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Song Lyrics from Audio",
+      "bounding": [
+        -1068.2393212456157,
+        528.6435391763175,
+        658.2583256489652,
+        541.5479581855504
+      ],
+      "color": "#88A",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Song Lyrics Text",
+      "bounding": [
+        -1069.5446318852546,
+        173.13829834680587,
+        659.3672105642702,
+        340.33777667190554
+      ],
+      "color": "#88A",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7126682498497977,
+      "offset": [
+        1048.0608859366623,
+        345.84975354759024
+      ]
+    },
+    "anomalous_hashes": {
+      "13_HeartMuLa-oss-3B-merged-bf16.safetensors": {
+        "hash": "",
+        "size": 7886590232
+      },
+      "13_HeartCodec-oss-merged-fp16.safetensors": {
+        "hash": "",
+        "size": 3319247562
+      }
+    },
+    "frontendVersion": "1.47.11"
+  },
+  "version": 0.4
+}

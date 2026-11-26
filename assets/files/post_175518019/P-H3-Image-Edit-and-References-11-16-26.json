@@ -1,0 +1,2018 @@
+{
+ "id": "6e5d96b7-1687-4e3d-8559-6c3e5468c193",
+ "revision": 0,
+ "last_node_id": 93,
+ "last_link_id": 157,
+ "nodes": [
+  {
+   "id": 9,
+   "type": "SaveImage",
+   "pos": [
+    4004.842096921388,
+    15.157706483154234
+   ],
+   "size": [
+    900,
+    900
+   ],
+   "flags": {},
+   "order": 30,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 153
+    }
+   ],
+   "outputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "links": [
+      94
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "SaveImage"
+   },
+   "widgets_values": [
+    "P-H3-Image/edit"
+   ],
+   "widgets_values_named": {
+    "filename_prefix": "P-H3-Image/edit"
+   }
+  },
+  {
+   "id": 29,
+   "type": "UNETLoader",
+   "pos": [
+    0,
+    0
+   ],
+   "size": [
+    460,
+    90
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      116
+     ]
+    }
+   ],
+   "title": "Diffusion model (int8 = best quality, w4a8 = 6-8 GB VRAM)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "UNETLoader",
+    "models": [
+     {
+      "name": "p-h3-image_int8_convrot.safetensors",
+      "url": "https://huggingface.co/PrunaAI/P-H3-Image-Comfy/resolve/main/diffusion_models/p-h3-image_int8_convrot.safetensors",
+      "directory": "diffusion_models"
+     }
+    ]
+   },
+   "widgets_values": [
+    "p-h3-image_int8_convrot.safetensors",
+    "default"
+   ],
+   "widgets_values_named": {
+    "unet_name": "p-h3-image_int8_convrot.safetensors",
+    "weight_dtype": "default"
+   }
+  },
+  {
+   "id": 30,
+   "type": "CLIPLoader",
+   "pos": [
+    0,
+    150
+   ],
+   "size": [
+    460,
+    120
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      126
+     ]
+    }
+   ],
+   "title": "Text encoder (int8 = best quality, w4a8 = smaller cards)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "CLIPLoader",
+    "models": [
+     {
+      "name": "p-h3-image_text_encoder_int8_convrot.safetensors",
+      "url": "https://huggingface.co/PrunaAI/P-H3-Image-Comfy/resolve/main/text_encoders/p-h3-image_text_encoder_int8_convrot.safetensors",
+      "directory": "text_encoders"
+     }
+    ]
+   },
+   "widgets_values": [
+    "p-h3-image_text_encoder_int8_convrot.safetensors",
+    "minimax",
+    "default"
+   ],
+   "widgets_values_named": {
+    "clip_name": "p-h3-image_text_encoder_int8_convrot.safetensors",
+    "type": "minimax",
+    "device": "default"
+   }
+  },
+  {
+   "id": 31,
+   "type": "VAELoader",
+   "pos": [
+    0,
+    330
+   ],
+   "size": [
+    460,
+    70
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      60,
+      127
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "VAELoader",
+    "models": [
+     {
+      "name": "p-h3-image_vae_int8_convrot.safetensors",
+      "url": "https://huggingface.co/PrunaAI/P-H3-Image-Comfy/resolve/main/vae/p-h3-image_vae_int8_convrot.safetensors",
+      "directory": "vae"
+     }
+    ]
+   },
+   "widgets_values": [
+    "p-h3-image_vae_int8_convrot.safetensors"
+   ],
+   "widgets_values_named": {
+    "vae_name": "p-h3-image_vae_int8_convrot.safetensors"
+   }
+  },
+  {
+   "id": 42,
+   "type": "VAEDecode",
+   "pos": [
+    3547.5190880529813,
+    583.2922732678138
+   ],
+   "size": [
+    380,
+    60
+   ],
+   "flags": {},
+   "order": 28,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "LATENT",
+     "link": 136
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 60
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      152
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "VAEDecode"
+   }
+  },
+  {
+   "id": 43,
+   "type": "PrimitiveStringMultiline",
+   "pos": [
+    1000,
+    480
+   ],
+   "size": [
+    960,
+    220
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "STRING",
+     "type": "STRING",
+     "links": [
+      150,
+      156
+     ]
+    }
+   ],
+   "title": "Your instruction (refer to <Picture 1>, <Picture 2> ...)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "PrimitiveStringMultiline"
+   },
+   "widgets_values": [
+    "Add the dress from <Picture 2> to the woman in <Picture 1>"
+   ],
+   "widgets_values_named": {
+    "value": "Add the dress from <Picture 2> to the woman in <Picture 1>"
+   },
+   "color": "#232",
+   "bgcolor": "#353"
+  },
+  {
+   "id": 45,
+   "type": "LoadImage",
+   "pos": [
+    521.3445434570312,
+    1.3444519042968697
+   ],
+   "size": [
+    420,
+    460
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      87
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": null
+    }
+   ],
+   "title": "Picture 1 - the image to edit",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "A10_woman-pexels-4219913.jpg",
+    "image"
+   ],
+   "widgets_values_named": {
+    "image": "A10_woman-pexels-4219913.jpg",
+    "upload": "image"
+   }
+  },
+  {
+   "id": 48,
+   "type": "ResizeImageMaskNode",
+   "pos": [
+    521.3445434570312,
+    691.3444519042969
+   ],
+   "size": [
+    420,
+    110
+   ],
+   "flags": {},
+   "order": 21,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "input",
+     "type": "IMAGE,MASK",
+     "link": 88
+    }
+   ],
+   "outputs": [
+    {
+     "name": "resized",
+     "type": "IMAGE",
+     "links": [
+      77,
+      95,
+      128
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "ResizeImageMaskNode"
+   },
+   "widgets_values": [
+    "scale to multiple",
+    32,
+    "area"
+   ],
+   "widgets_values_named": {
+    "resize_type": "scale to multiple",
+    "resize_type.multiple": 32,
+    "scale_method": "area"
+   }
+  },
+  {
+   "id": 50,
+   "type": "GetImageSize",
+   "pos": [
+    521.3445434570312,
+    861.3444519042969
+   ],
+   "size": [
+    420,
+    124
+   ],
+   "flags": {},
+   "order": 23,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 77
+    }
+   ],
+   "outputs": [
+    {
+     "name": "width",
+     "type": "INT",
+     "links": [
+      133
+     ]
+    },
+    {
+     "name": "height",
+     "type": "INT",
+     "links": [
+      134
+     ]
+    },
+    {
+     "name": "batch_size",
+     "type": "INT",
+     "links": null
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "GetImageSize"
+   }
+  },
+  {
+   "id": 56,
+   "type": "ResizeImageMaskNode",
+   "pos": [
+    521.3445434570312,
+    521.3444519042969
+   ],
+   "size": [
+    420,
+    110
+   ],
+   "flags": {},
+   "order": 19,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "input",
+     "type": "IMAGE,MASK",
+     "link": 87
+    }
+   ],
+   "outputs": [
+    {
+     "name": "resized",
+     "type": "IMAGE",
+     "links": [
+      88
+     ]
+    }
+   ],
+   "title": "Edit size: 4 MP default, 8 max",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "ResizeImageMaskNode"
+   },
+   "widgets_values": [
+    "scale total pixels",
+    4,
+    "area"
+   ],
+   "widgets_values_named": {
+    "resize_type": "scale total pixels",
+    "resize_type.megapixels": 4,
+    "scale_method": "area"
+   }
+  },
+  {
+   "id": 62,
+   "type": "Image Comparer (rgthree)",
+   "pos": [
+    4980,
+    0
+   ],
+   "size": [
+    900,
+    900
+   ],
+   "flags": {},
+   "order": 31,
+   "mode": 0,
+   "inputs": [
+    {
+     "dir": 3,
+     "name": "image_a",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 94
+    },
+    {
+     "dir": 3,
+     "name": "image_b",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 95
+    }
+   ],
+   "outputs": [
+    {
+     "dir": 4,
+     "name": "images",
+     "shape": 3,
+     "type": "IMAGE",
+     "links": null
+    }
+   ],
+   "properties": {
+    "cnr_id": "rgthree-comfy",
+    "ver": "449c58fcdd612f7733e54c51f6758ead63fa180b",
+    "comparer_mode": "Slide",
+    "Node name for S&R": "Image Comparer (rgthree)"
+   },
+   "widgets_values": [
+    [
+     {
+      "name": "A",
+      "selected": true,
+      "url": "/api/view?filename=rgthree.compare._temp_kpadr_00003_.png&type=temp&subfolder=&rand=0.7246775023200912"
+     },
+     {
+      "name": "B",
+      "selected": true,
+      "url": "/api/view?filename=rgthree.compare._temp_kpadr_00004_.png&type=temp&subfolder=&rand=0.5847825985081014"
+     }
+    ]
+   ],
+   "widgets_values_named": {
+    "rgthree_comparer": {
+     "images": [
+      {
+       "name": "A",
+       "selected": true,
+       "url": "/api/view?filename=rgthree.compare._temp_kpadr_00003_.png&type=temp&subfolder=&rand=0.7246775023200912",
+       "img": {}
+      },
+      {
+       "name": "B",
+       "selected": true,
+       "url": "/api/view?filename=rgthree.compare._temp_kpadr_00004_.png&type=temp&subfolder=&rand=0.5847825985081014",
+       "img": {}
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": 64,
+   "type": "LoadImage",
+   "pos": [
+    995.601077353675,
+    24.430630703895538
+   ],
+   "size": [
+    230,
+    360
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      129,
+      143
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": []
+    }
+   ],
+   "title": "Picture 2 (reference)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "gold mini dress.webp",
+    "image"
+   ],
+   "widgets_values_named": {
+    "image": "gold mini dress.webp",
+    "upload": "image"
+   }
+  },
+  {
+   "id": 65,
+   "type": "LoadImage",
+   "pos": [
+    1241.1112433819735,
+    24.446244673295258
+   ],
+   "size": [
+    227.77761412060954,
+    354.44403530152385
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 2,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      130,
+      144
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": []
+    }
+   ],
+   "title": "Picture 3 (reference)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "example.png",
+    "image"
+   ],
+   "widgets_values_named": {
+    "image": "example.png",
+    "upload": "image"
+   }
+  },
+  {
+   "id": 66,
+   "type": "LoadImage",
+   "pos": [
+    1483.3336292613628,
+    25.550299400140254
+   ],
+   "size": [
+    230,
+    360
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 2,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      131,
+      145
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": []
+    }
+   ],
+   "title": "Picture 4 (reference)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "example.png",
+    "image"
+   ],
+   "widgets_values_named": {
+    "image": "example.png",
+    "upload": "image"
+   }
+  },
+  {
+   "id": 67,
+   "type": "MarkdownNote",
+   "pos": [
+    0,
+    460
+   ],
+   "size": [
+    500,
+    320
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Read me - files",
+   "properties": {},
+   "widgets_values": [
+    "## P-H3-Image - files\n| folder | file | size |\n|---|---|---|\n| diffusion_models | **p-h3-image_int8_convrot** (best quality) | 21.2 GB |\n| diffusion_models | p-h3-image_w4a8 (smaller cards) | 13.4 GB |\n| text_encoders | **p-h3-image_text_encoder_int8_convrot** | 5.1 GB |\n| text_encoders | p-h3-image_text_encoder_w4a8 (smaller cards) | 3.6 GB |\n| text_encoders | p-h3-image_prompt_upsampler_int8_convrot (optional) | 9.7 GB |\n| vae | p-h3-image_vae_int8_convrot | 3.1 GB |\n\nAll `.safetensors`, from **PrunaAI/P-H3-Image-Comfy** on Hugging Face. Built-in nodes: update ComfyUI to the latest version (tested on 0.45.0). rgthree for the toggle panel, the prompt switch and the before/after comparer.\nLicence: MiniMax H3 Community License - read it on the model page before you use it.\nWorkflow by TheLocalLab, built on PrunaAI's official workflow."
+   ],
+   "widgets_values_named": {
+    "text": "## MiniMax H3-Image - files\n| folder | file | size |\n|---|---|---|\n| diffusion_models | **minimax_h3_image_pruned_int8_convrot.safetensors** (best quality) | 20.98 GB |\n| diffusion_models | minimax_h3_image_pruned_w4a8.safetensors (low VRAM, 6-8 GB) | 12.55 GB |\n| text_encoders | qwen3vl_32b_minimax_h3_int8_convrot.safetensors | 27.14 GB |\n| text_encoders | qwen3.5_9b_w4a8_gptq.safetensors (prompt expander, optional) | 7.34 GB |\n| vae | minimax_h3_image_vae_fp16.safetensors | 1.17 GB |\n| loras | minimax_h3_pdmd_2nfe_comfyui.safetensors (2-step LoRA, optional) | 1.96 GB |\n\nRepos: Comfy-Org/MiniMax-H3-Image, Comfy-Org/MiniMax-H3, Comfy-Org/Qwen3.5, akhaliq/minimax-h3-image-pdmd-2step (LoRA by akhaliq, based on the pDMD 2-NFE LoRA). Needs **ComfyUI 0.45.0+**, no custom nodes except rgthree.\nLicence: MiniMax-H3-Image Community License Agreement - read it on the model page before you use it.\nWorkflow by TheLocalLab, built on the official Comfy-Org template."
+   },
+   "color": "#432",
+   "bgcolor": "#653"
+  },
+  {
+   "id": 68,
+   "type": "MarkdownNote",
+   "pos": [
+    0,
+    820
+   ],
+   "size": [
+    500,
+    470
+   ],
+   "flags": {},
+   "order": 9,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Read me - speed, settings, edit tips + low VRAM",
+   "properties": {},
+   "widgets_values": [
+    "## Speed (tested, RTX 4000 Ada 20 GB, int8 set)\n- **Use PyTorch for CUDA 13 (cu130).** On CUDA 12.8 it was about 3.5x slower.\n- 4 MP edit: ~35 s sampling. Prompt upsampler: ~10-15 s. 5 pictures in one edit: ~5.5 min.\n\n## Settings (official, already set)\n8 steps (Manual Sigmas), euler, no CFG (Basic Guider), sigma shift 1 / 1.\n\n## Edit tips\n- Picture 1 is the image to edit. Call the pictures `<Picture 1>`, `<Picture 2>` ... in your instruction.\n- **Edit size:** 4 MP default, 8 MP max (Pruna: edits work best at 4 or 8 MP). The edit keeps Picture 1's aspect ratio.\n- **References:** turn Pictures 2-5 on in the toggle panel. Up to 8 pictures in total: connect another Load Image to the next free input on p-h3-image Conditioning and Batch Images. Each picture adds time.\n- **Prompt upsampler on:** a short instruction is enough. **Off:** your instruction goes to the model as written, so describe the result in detail.\n- **Image Scale By** doubles the saved image (lanczos). Set it to 1 to save at the edit size.\n\n## Low VRAM (tested by capping the VRAM on a 20 GB card)\n- Load the w4a8 model and the w4a8 text encoder: full speed at an 8 GB and a 6 GB cap.\n- At the 6 GB cap a 4 MP edit took ~36 s and peaked at ~5.3 GB.\n- The prompt upsampler slows to ~30-50 s under a cap. ComfyUI used up to ~17.5 GB of system RAM."
+   ],
+   "widgets_values_named": {
+    "text": "## Speed (tested, RTX A4500 20 GB)\n- **Use the CUDA 13 build of PyTorch** (NVIDIA driver 580+). On CUDA 12.8 the int8 / w4a8 fast kernels stay off: a 4 MP image took 86 s instead of 20 s (measured on an RTX 4000 Ada).\n- No Comfy Kitchen attention node needed: these model files already use it.\n- **2-step LoRA group** (off by default): 16 MP sampling 19 s instead of 57 s, an edit 9 s instead of 27 s. At 100% it leaves a fine mesh, so use it for drafts and the full 6 steps for finals. Keep the LoRA at exactly 1.0.\n\n## Settings (tested)\n- **euler / simple / 6 steps / CFG 1** - the model is distilled to exactly this.\n- **Do NOT use karras, dpmpp_2m or res_multistep** - they break the image with no error.\n- euler_ancestral looks more natural on fur/skin but can **scramble small text** - keep euler for anything with words.\n- Low VRAM: load **minimax_h3_image_pruned_w4a8** in the model loader. With the VRAM capped at 8 GB and at 6 GB it kept full speed on an RTX A4500 (16 MP 58 s, edit 28 s, peak 5.9 GiB at the 6 GB cap). System RAM is the catch: my runs used 45-50 GB, so **32 GB may be tight** (it can run out of memory) but should still work. Turn the Prompt Expander off on low VRAM.\n\n## Edit tips (tested)\n- 4 MP default (~27 s sampling, ~43 s per edit on an RTX A4500), **8 MP max, never 16 MP** for edits.\n- **Half-done edit? Change the seed first.** Still stubborn (removals, whole-scene changes)? **Edit at 1 MP.**\n- References: Pictures 2-5 here; add more Load Image nodes for up to 16 (the expander only sees Pictures 1-4). **Crop busy photos** - Picture 1 is the image to edit.\n- 5 pictures: ~3 min sampling on an RTX A4500. Each extra picture costs time, not VRAM.\n- Expander ON = type a short instruction (~124 s per edit). OFF = write a detailed prompt yourself (~43 s)."
+   },
+   "color": "#432",
+   "bgcolor": "#653"
+  },
+  {
+   "id": 69,
+   "type": "Fast Groups Muter (rgthree)",
+   "pos": [
+    1021.5126342773438,
+    804.0336914062505
+   ],
+   "size": [
+    340,
+    154
+   ],
+   "flags": {},
+   "order": 10,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "OPT_CONNECTION",
+     "type": "*",
+     "links": null
+    }
+   ],
+   "title": "Toggle optional groups",
+   "properties": {
+    "matchColors": "black",
+    "matchTitle": "",
+    "showNav": true,
+    "showAllGraphs": true,
+    "sort": "position",
+    "customSortAlphabet": "",
+    "toggleRestriction": "default"
+   },
+   "color": "#222",
+   "bgcolor": "#000"
+  },
+  {
+   "id": 76,
+   "type": "LoadImage",
+   "pos": [
+    1735.5569029248436,
+    24.136037274825732
+   ],
+   "size": [
+    230,
+    360
+   ],
+   "flags": {},
+   "order": 11,
+   "mode": 2,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      132,
+      154
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": []
+    }
+   ],
+   "title": "Picture 5 (reference)",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "example.png",
+    "image"
+   ],
+   "widgets_values_named": {
+    "image": "example.png",
+    "upload": "image"
+   }
+  },
+  {
+   "id": 77,
+   "type": "MarkdownNote",
+   "pos": [
+    0,
+    1330
+   ],
+   "size": [
+    500,
+    340
+   ],
+   "flags": {},
+   "order": 12,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Read me - size reference",
+   "properties": {},
+   "widgets_values": [
+    "## Size reference (Pruna)\n| Aspect | 8 MP (text to image) | 4 MP (edits) |\n|---|---|---|\n| 1:1 | 2912 x 2912 | 2048 x 2048 |\n| 4:3 | 3360 x 2496 | 2368 x 1760 |\n| 3:4 | 2496 x 3360 | 1760 x 2368 |\n| 3:2 | 3552 x 2368 | 2496 x 1664 |\n| 2:3 | 2368 x 3552 | 1664 x 2496 |\n| 16:9 | 3872 x 2176 | 2720 x 1536 |\n| 9:16 | 2176 x 3872 | 1536 x 2720 |\n\nEdits keep Picture 1's aspect ratio at the megapixels in **Edit size** (4 MP default, 8 max)."
+   ],
+   "widgets_values_named": {
+    "text": "## Size settings reference\nExact width x height the **Resolution Selector** gives (multiple 32). The 16 MP row = the official Comfy-Org template sizes.\n\n| MP | 1:1 | 3:4 | 4:3 | 2:3 | 3:2 | 9:16 | 16:9 | 21:9 |\n|---|---|---|---|---|---|---|---|---|\n| **1** | 1024 x 1024 | 896 x 1184 | 1184 x 896 | 832 x 1248 | 1248 x 832 | 768 x 1376 | 1376 x 768 | 1568 x 672 |\n| **2** | 1440 x 1440 | 1248 x 1664 | 1664 x 1248 | 1184 x 1760 | 1760 x 1184 | 1088 x 1920 | 1920 x 1088 | 2208 x 960 |\n| **4** | 2048 x 2048 | 1760 x 2368 | 2368 x 1760 | 1664 x 2496 | 2496 x 1664 | 1536 x 2720 | 2720 x 1536 | 3136 x 1344 |\n| **8** | 2912 x 2912 | 2496 x 3360 | 3360 x 2496 | 2368 x 3552 | 3552 x 2368 | 2176 x 3872 | 3872 x 2176 | 4416 x 1888 |\n| **12** | 3552 x 3552 | 3072 x 4096 | 4096 x 3072 | 2912 x 4352 | 4352 x 2912 | 2656 x 4736 | 4736 x 2656 | 5408 x 2336 |\n| **16** | 4096 x 4096 | 3552 x 4736 | 4736 x 3552 | 3360 x 5024 | 5024 x 3360 | 3072 x 5472 | 5472 x 3072 | 6272 x 2688 |\n\n- Edits keep **Picture 1's aspect ratio** at the megapixels set in **Edit size**: **4 MP** default (the 4 MP row), **8 MP** max, **1 MP** for stubborn edits.\n- The model's effective range is about 4-20 MP (official); for edits stay at 4-8 MP."
+   },
+   "color": "#432",
+   "bgcolor": "#653"
+  },
+  {
+   "id": 78,
+   "type": "MiniMaxH3SigmaShift",
+   "pos": [
+    3126.291404881398,
+    439.3239047800054
+   ],
+   "size": [
+    277.2857421875,
+    82
+   ],
+   "flags": {},
+   "order": 18,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 116
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      137
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "MiniMaxH3SigmaShift"
+   },
+   "widgets_values": [
+    1,
+    1
+   ],
+   "widgets_values_named": {
+    "shift_video": 1,
+    "shift_audio": 1
+   }
+  },
+  {
+   "id": 79,
+   "type": "PH3ImageConditioning",
+   "pos": [
+    3077.0026586249483,
+    35.797030962999955
+   ],
+   "size": [
+    400,
+    356
+   ],
+   "flags": {},
+   "order": 25,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 126
+    },
+    {
+     "name": "vae",
+     "shape": 7,
+     "type": "VAE",
+     "link": 127
+    },
+    {
+     "name": "images.image_1",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 128
+    },
+    {
+     "name": "images.image_2",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 129
+    },
+    {
+     "name": "images.image_3",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 130
+    },
+    {
+     "name": "images.image_4",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 131
+    },
+    {
+     "name": "images.image_5",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 132
+    },
+    {
+     "name": "images.image_6",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "images.image_7",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "images.image_8",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "images.image_9",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "prompt",
+     "type": "STRING",
+     "widget": {
+      "name": "prompt"
+     },
+     "link": 157
+    },
+    {
+     "name": "width",
+     "type": "INT",
+     "widget": {
+      "name": "width"
+     },
+     "link": 133
+    },
+    {
+     "name": "height",
+     "type": "INT",
+     "widget": {
+      "name": "height"
+     },
+     "link": 134
+    }
+   ],
+   "outputs": [
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "links": [
+      119
+     ]
+    },
+    {
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      124
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "PH3ImageConditioning"
+   },
+   "widgets_values": [
+    "",
+    0,
+    0
+   ],
+   "widgets_values_named": {
+    "prompt": "",
+    "width": 0,
+    "height": 0
+   }
+  },
+  {
+   "id": 80,
+   "type": "BasicGuider",
+   "pos": [
+    3620.058114347604,
+    67.32832725419884
+   ],
+   "size": [
+    240,
+    46
+   ],
+   "flags": {},
+   "order": 26,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 137
+    },
+    {
+     "name": "conditioning",
+     "type": "CONDITIONING",
+     "link": 119
+    }
+   ],
+   "outputs": [
+    {
+     "name": "GUIDER",
+     "type": "GUIDER",
+     "links": [
+      121
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "BasicGuider"
+   }
+  },
+  {
+   "id": 81,
+   "type": "SamplerCustomAdvanced",
+   "pos": [
+    3620.058114347604,
+    183.3283272541988
+   ],
+   "size": [
+    270,
+    330
+   ],
+   "flags": {},
+   "order": 27,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "noise",
+     "type": "NOISE",
+     "link": 120
+    },
+    {
+     "name": "guider",
+     "type": "GUIDER",
+     "link": 121
+    },
+    {
+     "name": "sampler",
+     "type": "SAMPLER",
+     "link": 122
+    },
+    {
+     "name": "sigmas",
+     "type": "SIGMAS",
+     "link": 123
+    },
+    {
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 124
+    }
+   ],
+   "outputs": [
+    {
+     "name": "output",
+     "type": "LATENT",
+     "links": [
+      136
+     ]
+    },
+    {
+     "name": "denoised_output",
+     "type": "LATENT",
+     "links": []
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "SamplerCustomAdvanced"
+   }
+  },
+  {
+   "id": 82,
+   "type": "RandomNoise",
+   "pos": [
+    3131.036783457905,
+    574.8924802209261
+   ],
+   "size": [
+    270,
+    82
+   ],
+   "flags": {},
+   "order": 13,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "NOISE",
+     "type": "NOISE",
+     "links": [
+      120
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "RandomNoise"
+   },
+   "widgets_values": [
+    45058188661998,
+    "randomize"
+   ],
+   "widgets_values_named": {
+    "noise_seed": 45058188661998,
+    "control_after_generate": "randomize"
+   }
+  },
+  {
+   "id": 83,
+   "type": "KSamplerSelect",
+   "pos": [
+    3130.118567248929,
+    703.934031784706
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 14,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "SAMPLER",
+     "type": "SAMPLER",
+     "links": [
+      122
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "KSamplerSelect"
+   },
+   "widgets_values": [
+    "euler"
+   ],
+   "widgets_values_named": {
+    "sampler_name": "euler"
+   }
+  },
+  {
+   "id": 85,
+   "type": "ManualSigmas",
+   "pos": [
+    3117.2617894342743,
+    813.567289710864
+   ],
+   "size": [
+    320,
+    82
+   ],
+   "flags": {},
+   "order": 15,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "SIGMAS",
+     "type": "SIGMAS",
+     "links": [
+      123
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "ManualSigmas"
+   },
+   "widgets_values": [
+    "1.0, 0.984753, 0.967905, 0.951688, 0.925372, 0.881923, 0.810083, 0.528718, 0.0"
+   ],
+   "widgets_values_named": {
+    "sigmas": "1.0, 0.984753, 0.967905, 0.951688, 0.925372, 0.881923, 0.810083, 0.528718, 0.0"
+   }
+  },
+  {
+   "id": 86,
+   "type": "CLIPLoader",
+   "pos": [
+    2057.7473288154956,
+    34.08443820627237
+   ],
+   "size": [
+    320,
+    106
+   ],
+   "flags": {},
+   "order": 16,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      139
+     ]
+    }
+   ],
+   "title": "p-h3-image prompt upsampler",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "CLIPLoader",
+    "models": [
+     {
+      "name": "p-h3-image_prompt_upsampler_int8_convrot.safetensors",
+      "url": "https://huggingface.co/PrunaAI/P-H3-Image-Comfy/resolve/main/text_encoders/p-h3-image_prompt_upsampler_int8_convrot.safetensors",
+      "directory": "text_encoders"
+     }
+    ]
+   },
+   "widgets_values": [
+    "p-h3-image_prompt_upsampler_int8_convrot.safetensors",
+    "minimax",
+    "default"
+   ],
+   "widgets_values_named": {
+    "clip_name": "p-h3-image_prompt_upsampler_int8_convrot.safetensors",
+    "type": "minimax",
+    "device": "default"
+   }
+  },
+  {
+   "id": 87,
+   "type": "BatchImagesNode",
+   "pos": [
+    2071.1987596275208,
+    203.3272476822577
+   ],
+   "size": [
+    220,
+    106
+   ],
+   "flags": {},
+   "order": 20,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images.image0",
+     "type": "IMAGE",
+     "link": 143
+    },
+    {
+     "name": "images.image1",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 144
+    },
+    {
+     "name": "images.image2",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 145
+    },
+    {
+     "name": "images.image3",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 154
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      147
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "BatchImagesNode"
+   }
+  },
+  {
+   "id": 88,
+   "type": "MarkdownNote",
+   "pos": [
+    2049.6861863853333,
+    374.11716467444484
+   ],
+   "size": [
+    400,
+    260
+   ],
+   "flags": {},
+   "order": 17,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Prompt upsampler",
+   "properties": {},
+   "widgets_values": [
+    "**Prompt upsampler.** Type a short instruction in **Your instruction**, with `<Picture 1>` for the image to edit and `<Picture 2>` ... for the references. The upsampler (Generate Text) gets the reference pictures through **Batch Images** and writes the full edit prompt, shown in **Upsampled prompt**.\n\nTurn this group off in the toggle panel to send your instruction to the model as it is."
+   ],
+   "widgets_values_named": {
+    "text": "**Prompt upsampler.** Type a short edit request in **Request**, with `<Picture 1>` for the image to edit and `<Picture 2>` for the reference. The upsampler (Generate Text) sees both images and turns the request into an edit brief, shown in the preview.\n\nFor another number of images, add or remove a `<Picture N>: <|vision_start|><|image_pad|><|vision_end|>` block in **Upsampler input** the image in **Batch Images**, padded to image_1's size, and the image on **p-h3-image Conditioning**.\n\n**image_1 at 4 MP** sets the size of the edit.\n\nSet **Use prompt upsampler** to false to send the request to the model as it is."
+   },
+   "color": "#432",
+   "bgcolor": "#653"
+  },
+  {
+   "id": 89,
+   "type": "PreviewAny",
+   "pos": [
+    2497.7534471275203,
+    381.29361731116325
+   ],
+   "size": [
+    480,
+    360
+   ],
+   "flags": {},
+   "order": 24,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "source",
+     "type": "*",
+     "link": 138
+    }
+   ],
+   "outputs": [
+    {
+     "name": "STRING",
+     "type": "STRING",
+     "links": [
+      155
+     ]
+    }
+   ],
+   "title": "Upsampled prompt",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.43.0",
+    "Node name for S&R": "PreviewAny"
+   },
+   "widgets_values": [],
+   "widgets_values_named": {}
+  },
+  {
+   "id": 90,
+   "type": "TextGenerate",
+   "pos": [
+    2527.3332811118953,
+    28.671760621710654
+   ],
+   "size": [
+    400,
+    288
+   ],
+   "flags": {},
+   "order": 22,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 139
+    },
+    {
+     "name": "image",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": 147
+    },
+    {
+     "name": "video",
+     "shape": 7,
+     "type": "IMAGE",
+     "link": null
+    },
+    {
+     "name": "audio",
+     "shape": 7,
+     "type": "AUDIO",
+     "link": null
+    },
+    {
+     "name": "system_prompt",
+     "shape": 7,
+     "type": "STRING",
+     "link": null
+    },
+    {
+     "name": "prompt",
+     "type": "STRING",
+     "widget": {
+      "name": "prompt"
+     },
+     "link": 150
+    }
+   ],
+   "outputs": [
+    {
+     "name": "generated_text",
+     "type": "STRING",
+     "links": [
+      138
+     ]
+    },
+    {
+     "name": "thinking",
+     "type": "STRING",
+     "links": []
+    }
+   ],
+   "title": "Prompt upsampler",
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "TextGenerate"
+   },
+   "widgets_values": [
+    "",
+    3072,
+    "off",
+    false,
+    true,
+    "auto"
+   ],
+   "widgets_values_named": {
+    "prompt": "",
+    "max_length": 3072,
+    "sampling_mode": "off",
+    "thinking": false,
+    "use_default_template": true,
+    "mtp": "auto"
+   }
+  },
+  {
+   "id": 92,
+   "type": "ImageScaleBy",
+   "pos": [
+    3598.862849664769,
+    721.8042890448445
+   ],
+   "size": [
+    270,
+    82
+   ],
+   "flags": {},
+   "order": 29,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 152
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      153
+     ]
+    }
+   ],
+   "properties": {
+    "cnr_id": "comfy-core",
+    "ver": "0.45.0",
+    "Node name for S&R": "ImageScaleBy"
+   },
+   "widgets_values": [
+    "lanczos",
+    2
+   ],
+   "widgets_values_named": {
+    "upscale_method": "lanczos",
+    "scale_by": 2
+   }
+  },
+  {
+   "type": "Any Switch (rgthree)",
+   "title": "Prompt: upsampled if the Prompt upsampler group is on, else your instruction",
+   "pos": [
+    1400,
+    804
+   ],
+   "size": [
+    460,
+    110
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "any_01",
+     "type": "*",
+     "link": 155,
+     "dir": 3
+    },
+    {
+     "name": "any_02",
+     "type": "*",
+     "link": 156,
+     "dir": 3
+    },
+    {
+     "name": "any_03",
+     "type": "*",
+     "link": null,
+     "dir": 3
+    }
+   ],
+   "outputs": [
+    {
+     "name": "*",
+     "type": "*",
+     "links": [
+      157
+     ],
+     "dir": 4,
+     "label": "STRING"
+    }
+   ],
+   "properties": {
+    "cnr_id": "rgthree-comfy",
+    "Node name for S&R": "Any Switch (rgthree)"
+   },
+   "id": 93
+  }
+ ],
+ "links": [
+  [
+   60,
+   31,
+   0,
+   42,
+   1,
+   "VAE"
+  ],
+  [
+   77,
+   48,
+   0,
+   50,
+   0,
+   "IMAGE"
+  ],
+  [
+   94,
+   9,
+   0,
+   62,
+   0,
+   "IMAGE"
+  ],
+  [
+   95,
+   48,
+   0,
+   62,
+   1,
+   "IMAGE"
+  ],
+  [
+   116,
+   29,
+   0,
+   78,
+   0,
+   "MODEL"
+  ],
+  [
+   119,
+   79,
+   0,
+   80,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   120,
+   82,
+   0,
+   81,
+   0,
+   "NOISE"
+  ],
+  [
+   121,
+   80,
+   0,
+   81,
+   1,
+   "GUIDER"
+  ],
+  [
+   122,
+   83,
+   0,
+   81,
+   2,
+   "SAMPLER"
+  ],
+  [
+   123,
+   85,
+   0,
+   81,
+   3,
+   "SIGMAS"
+  ],
+  [
+   124,
+   79,
+   1,
+   81,
+   4,
+   "LATENT"
+  ],
+  [
+   136,
+   81,
+   0,
+   42,
+   0,
+   "LATENT"
+  ],
+  [
+   137,
+   78,
+   0,
+   80,
+   0,
+   "MODEL"
+  ],
+  [
+   138,
+   90,
+   0,
+   89,
+   0,
+   "STRING"
+  ],
+  [
+   152,
+   42,
+   0,
+   92,
+   0,
+   "IMAGE"
+  ],
+  [
+   153,
+   92,
+   0,
+   9,
+   0,
+   "IMAGE"
+  ],
+  [
+   88,
+   56,
+   0,
+   48,
+   0,
+   "IMAGE"
+  ],
+  [
+   87,
+   45,
+   0,
+   56,
+   0,
+   "IMAGE"
+  ],
+  [
+   143,
+   64,
+   0,
+   87,
+   0,
+   "IMAGE"
+  ],
+  [
+   144,
+   65,
+   0,
+   87,
+   1,
+   "IMAGE"
+  ],
+  [
+   145,
+   66,
+   0,
+   87,
+   2,
+   "IMAGE"
+  ],
+  [
+   139,
+   86,
+   0,
+   90,
+   0,
+   "CLIP"
+  ],
+  [
+   147,
+   87,
+   0,
+   90,
+   1,
+   "IMAGE"
+  ],
+  [
+   150,
+   43,
+   0,
+   90,
+   5,
+   "STRING"
+  ],
+  [
+   126,
+   30,
+   0,
+   79,
+   0,
+   "CLIP"
+  ],
+  [
+   127,
+   31,
+   0,
+   79,
+   1,
+   "VAE"
+  ],
+  [
+   128,
+   48,
+   0,
+   79,
+   2,
+   "IMAGE"
+  ],
+  [
+   129,
+   64,
+   0,
+   79,
+   3,
+   "IMAGE"
+  ],
+  [
+   130,
+   65,
+   0,
+   79,
+   4,
+   "IMAGE"
+  ],
+  [
+   131,
+   66,
+   0,
+   79,
+   5,
+   "IMAGE"
+  ],
+  [
+   132,
+   76,
+   0,
+   79,
+   6,
+   "IMAGE"
+  ],
+  [
+   133,
+   50,
+   0,
+   79,
+   12,
+   "INT"
+  ],
+  [
+   134,
+   50,
+   1,
+   79,
+   13,
+   "INT"
+  ],
+  [
+   154,
+   76,
+   0,
+   87,
+   3,
+   "IMAGE"
+  ],
+  [
+   155,
+   89,
+   0,
+   93,
+   0,
+   "STRING"
+  ],
+  [
+   156,
+   43,
+   0,
+   93,
+   1,
+   "STRING"
+  ],
+  [
+   157,
+   93,
+   0,
+   79,
+   11,
+   "*"
+  ]
+ ],
+ "groups": [
+  {
+   "id": 1,
+   "title": "1. Models",
+   "bounding": [
+    -20,
+    -60,
+    500,
+    480
+   ],
+   "flags": {}
+  },
+  {
+   "id": 2,
+   "title": "2. Picture 1 (image to edit) + edit size",
+   "bounding": [
+    501.34454345703125,
+    -58.65554809570313,
+    460,
+    1030
+   ],
+   "flags": {}
+  },
+  {
+   "id": 3,
+   "title": "Extra References (Pictures 2-5)",
+   "bounding": [
+    980,
+    -60,
+    1010.0006860149795,
+    467.77967216554737
+   ],
+   "flags": {}
+  },
+  {
+   "id": 4,
+   "title": "3. Your instruction",
+   "bounding": [
+    980,
+    420,
+    998.655517578125,
+    551.35
+   ],
+   "flags": {}
+  },
+  {
+   "id": 5,
+   "title": "Prompt upsampler (Qwen3.5 9B)",
+   "bounding": [
+    2020,
+    -60,
+    980,
+    830
+   ],
+   "color": "#444",
+   "flags": {}
+  },
+  {
+   "id": 6,
+   "title": "4. Generate",
+   "bounding": [
+    3040,
+    -60,
+    1900,
+    980
+   ],
+   "flags": {}
+  },
+  {
+   "id": 7,
+   "title": "Before / After (hover over the image to compare)",
+   "bounding": [
+    4960,
+    -60,
+    940,
+    980
+   ],
+   "flags": {}
+  },
+  {
+   "id": 8,
+   "title": "Picture 4",
+   "bounding": [
+    1475.248434028261,
+    -19.122777661492083,
+    238.89571765237565,
+    406.6892110020643
+   ],
+   "color": "#444",
+   "flags": {}
+  },
+  {
+   "id": 9,
+   "title": "Picture 2",
+   "bounding": [
+    988.1943004094878,
+    -21.89552099654159,
+    243.7721885992247,
+    407.84647941914864
+   ],
+   "color": "#444",
+   "flags": {}
+  },
+  {
+   "id": 10,
+   "title": "Picture 3",
+   "bounding": [
+    1235.4613286219464,
+    -22.532033550181662,
+    236.6734326575404,
+    406.6894127711759
+   ],
+   "color": "#444",
+   "flags": {}
+  },
+  {
+   "id": 11,
+   "title": "Picture 5",
+   "bounding": [
+    1728.624598219359,
+    -15.005156487134412,
+    245.56287529054703,
+    397.79976836905837
+   ],
+   "color": "#444",
+   "flags": {}
+  }
+ ],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.19277164471476718,
+   "offset": [
+    -561.0721764727759,
+    1734.125746429507
+   ]
+  },
+  "frontendVersion": "1.59.1",
+  "VHS_latentpreview": false,
+  "VHS_latentpreviewrate": 0,
+  "VHS_MetadataImage": true,
+  "VHS_KeepIntermediate": true
+ },
+ "version": 0.4
+}

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<title>Voice Starter List</title>
+<style>
+:root{--bg:#f7f6f2;--surface:#ffffff;--surface2:#f1efe8;--text:#1b1c1f;--muted:#5d6068;--line:#dedad0;--accent:#8a5300;--accent-bg:#fff4d1;--accent-line:#e9c45a;--link:#0b57b8;--quote:#2a2c31;--chip:#ece8dc}
+@media (prefers-color-scheme: dark){:root{--bg:#0f1115;--surface:#171a21;--surface2:#1d2129;--text:#e9e9ec;--muted:#a3a7b1;--line:#2c313c;--accent:#ffc400;--accent-bg:#2a2410;--accent-line:#7a6114;--link:#8cc4ff;--quote:#dcdde2;--chip:#232833}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 16px 48px}
+a{color:var(--link)}
+.eyebrow{margin:0 0 6px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{margin:0 0 10px;font-size:clamp(30px,6vw,44px);line-height:1.1;letter-spacing:-.01em}
+.lede{margin:0 0 14px;font-size:18px;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.chips li{background:var(--chip);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600}
+.toc{font-size:15px;margin:0 0 26px}
+.toc a{margin-right:14px}
+.rules{background:var(--accent-bg);border:1px solid var(--accent-line);border-left:6px solid var(--accent);border-radius:10px;padding:16px 18px;margin:0 0 28px}
+.rules h2{margin:0 0 8px;font-size:20px}
+.rules ul{margin:0;padding-left:20px}
+.rules li{margin:6px 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 30px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card h2{margin:0 0 8px;font-size:20px}
+.card ol,.card ul{margin:0;padding-left:20px}
+.card li{margin:6px 0}
+section{margin:0 0 36px}
+section h2{font-size:26px;margin:0 0 4px}
+.count{font-size:15px;font-weight:600;color:var(--muted);margin-left:6px}
+.sub{margin:0 0 14px;color:var(--muted)}
+table.voices{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+col.c1{width:36%}col.c2{width:40%}col.c3{width:24%}
+th{text-align:left;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--surface2);padding:10px 14px;border-bottom:1px solid var(--line)}
+td{vertical-align:top;padding:14px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+tbody tr:last-child td{border-bottom:0}
+.label{margin:0 0 8px;font-weight:700;font-size:17px;line-height:1.35}
+.meta{margin:0;font-size:13.5px;color:var(--muted)}
+.meta div{margin:2px 0}
+.meta dt{display:inline;font-weight:600;color:var(--text)}
+.meta dt::after{content:": "}
+.meta dd{display:inline;margin:0}
+blockquote{margin:0;padding:0 0 0 12px;border-left:3px solid var(--line);color:var(--quote);font-style:italic}
+.withheld{margin:0;color:var(--muted);font-size:14.5px}
+a.open{display:inline-block;font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface2)}
+a.open:hover,a.open:focus-visible{text-decoration:underline}
+.file{margin:8px 0 0;font-size:12.5px;color:var(--muted)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13.5px;color:var(--muted)}
+footer p{margin:6px 0}
+@media (max-width:760px){
+ .cols{grid-template-columns:1fr}
+ .lede{font-size:17px}
+ table.voices,table.voices tbody,table.voices tr,table.voices td{display:block;width:100%}
+ table.voices{background:transparent;border:0;border-radius:0;overflow:visible}
+ table.voices thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ table.voices colgroup{display:none}
+ table.voices tr{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:0 0 14px;padding:4px 0}
+ table.voices td{border-bottom:1px dashed var(--line);padding:10px 14px}
+ table.voices td:last-child{border-bottom:0}
+ table.voices td+td::before{content:attr(data-label);display:block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 4px;font-style:normal}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<p class="eyebrow">TheLocalLab &middot; Members kit</p>
+<h1>Voice Starter List</h1>
+<p class="lede">26 English voice samples from Kyutai's CC0 voice donations that our automatic listening filter kept as UK or US English. Each entry has a plain label, what the sample says, and a link to the sample on Kyutai's own page. We link and never copy the audio, so if a donor withdraws, the link simply stops working.</p>
+<ul class="chips"><li>6 UK voices</li><li>20 US voices</li><li>10-second samples</li><li>CC0</li></ul>
+<nav class="toc" aria-label="On this page"><a href="#rules">The rules</a><a href="#uk">UK voices (6)</a><a href="#us">US voices (20)</a></nav>
+</header>
+<main>
+<aside class="rules" id="rules" aria-labelledby="rules-h">
+<h2 id="rules-h">The rules (read before you use a voice)</h2>
+<ul><li>These voices are <b>CC0 donations</b> to Kyutai's Unmute Voice Donation Project. Anyone may use them for any purpose, commercial or not. Read the <a href="https://kyutai.org/legal/Terms%20of%20Use%20-%20Unmute%20Voice%20Donation%20Project%20v1.pdf" target="_blank" rel="noopener noreferrer">donation terms (PDF)</a>.</li><li><b>Donors can withdraw.</b> Before you publish anything made with a voice, open its link again and check that the file is still in Kyutai's repo. If the page says the file is not found, do not publish with that voice.</li><li><b>Never name the speaker</b>, and never suggest that they endorse your content.</li><li><b>Label realistic AI voices as AI</b>: tick YouTube's "altered or synthetic content" setting, and use Meta's "AI info" label.</li><li><b>Follow Kyutai's Acceptable Use Policy.</b> The donation terms make every use of these voices subject to it.</li></ul>
+</aside>
+<div class="cols">
+<div class="card"><h2>Use a voice in the members workflow</h2><ol><li>Pick a voice from the lists below.</li><li>Open its link. Kyutai&#x27;s page plays the sample and has a download link. Download the .wav file.</li><li>In the workflow, switch on &quot;Clone a voice from a sample&quot; (the switches in group 5) and load the .wav into &quot;Voice sample&quot;.</li><li>Paste its transcript (shown next to the voice below) into &quot;Transcript&quot;, word for word: the model learns the voice from the sample and its text together.</li><li>Name the voice in &quot;Save it as a character voice&quot; (e.g. your character&#x27;s name) and run once. Press R, switch &quot;Use a saved voice&quot; on and the clone group off, and pick the name: every shot now uses that voice.</li><li>Before you publish, re-check the link (see the rules above).</li></ol></div>
+<div class="card"><h2>How to read the list</h2><ul><li>Each label shows the list number, how the voice sounds (male-sounding, female-sounding or ambiguous), the age band it sounds like, and its timbre. Labels and notes come from our automatic listening filter and describe the sample, not the donor.</li><li>Two age bands (for example 26-40 or 41-60) mean our two listening passes heard different ages.</li><li>&quot;Notes from our listening filter&quot; lists processing sounds the filter heard (for example metallic or muffled). Every one was rated slight or none. &quot;none flagged&quot; means it heard none.</li><li>Transcripts are automatic and can contain mistakes: listen to the sample and fix the transcript before you paste it. Voices whose samples include a name or personal details are not on this list.</li><li>Each link opens Kyutai&#x27;s cleaned version of the sample (the file name ends in _enhanced.wav). The original recording is in the same folder. Every sample is 10 seconds long.</li><li>Within each list, voices are sorted by voice type, then age band.</li></ul></div>
+</div>
+<section id="uk" aria-labelledby="uk-h">
+<h2 id="uk-h">UK voices <span class="count">6 voices</span></h2>
+<p class="sub">Our filter placed every voice here as UK English, with accents from England.</p>
+<table class="voices">
+<colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+<thead><tr><th scope="col">Voice</th><th scope="col">What the sample says (automatic transcript)</th><th scope="col">Listen / download</th></tr></thead>
+<tbody>
+<tr>
+<td data-label="Voice"><p class="label">UK-1 · male-sounding · 18-25 · bright, youthful, casual</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>Southern English / Estuary, young</dd></div><div><dt>Character ideas</dt><dd>young tech worker, student, quirky friend</dd></div><div><dt>Notes from our listening filter</dt><dd>none flagged</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>a long period of industrial stagnation ensued. Hillel was doing all this awesome feedback and stuff.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/30c5_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>30c5_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">UK-2 · male-sounding · 26-40 · warm, clear, slightly nasal</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>RP/London Estuary, non-rhotic modern southern English</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, documentary narrator, friendly teacher</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>The family was well off and practiced mercantile activity. His father was a farmer and his mother was a housewife. Oh, how good is that?</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Sp46_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Sp46_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">UK-3 · male-sounding · 26-40 or 41-60 · measured, deep, resonant</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>RP / educated Southern English</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, documentary voiceover, professor/lecturer</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, muffled, warbly</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>cloning the inlay color is molded first at the top of every stalk grows certain round and prickly knobs</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/29da_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>29da_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">UK-4 · male-sounding · 41-60 · deep, resonant, dramatic</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>RP / neutral educated English, slightly theatrical</dd></div><div><dt>Character ideas</dt><dd>villain, dramatic narrator, intense antagonist</dd></div><div><dt>Notes from our listening filter</dt><dd>cut off, metallic; listening passes split on accent: US / UK-England / UK-England</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>I would like to buy an avocado. One that is green on the outside. And green.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Butter_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Butter_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">UK-5 · male-sounding · 41-60 · warm, measured, resonant</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>RP / educated Southern English</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, documentary narrator, professor/academic</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, robotic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>though, he quit playing trombone and focused on piano. The invention of certain drugs enabled human passengers to use the drive.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Midlands_Bedfordshire_Dialect_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Midlands_Bedfordshire_Dialect_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">UK-6 · male-sounding · 41-60 or 60+ · deep, resonant, measured</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>Southern English / mild RP-adjacent</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, period drama gentleman, academic or detective</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, muffled</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>His work is noted for its stylistic elegance and poetic fantasy. The doctor looked at the young man and knitted his fingers.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/gmaskell92_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>gmaskell92_enhanced.wav</code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="us" aria-labelledby="us-h">
+<h2 id="us-h">US voices <span class="count">20 voices</span></h2>
+<p class="sub">Our filter placed every voice here as US English. The notes show where listening passes split.</p>
+<table class="voices">
+<colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+<thead><tr><th scope="col">Voice</th><th scope="col">What the sample says (automatic transcript)</th><th scope="col">Listen / download</th></tr></thead>
+<tbody>
+<tr>
+<td data-label="Voice"><p class="label">US-1 · female-sounding · 18-25 or 41-60 · bright, youthful, clear</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>young student, gen-z narrator, video game companion</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, noise</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>for voice cloning. Like all of the- I don&#x27;t know how to spell that word. Sea tulips are filler feeders. Early business included as a hotel, pharmacy, cotton mill, and lumber mill.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Haku_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Haku_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-2 · female-sounding · 26-40 · clear, smooth, bright</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>young professional, narrator, tech worker</dd></div><div><dt>Notes from our listening filter</dt><dd>none flagged</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>I consent to my voice being used for voice cloning. Gleason also performed in other media. He made the opening day roster.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/3973_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>3973_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-3 · female-sounding · 26-40 · clear, warm, measured</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, documentary voiceover, corporate explainer</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>I consent to my voice being used for voice cloning. The hotel became quite famous. Several more shootings have since been attributed to the feud.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/P0LFR_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>P0LFR_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-4 · female-sounding · 26-40 · clear, warm, smooth</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, corporate explainer voice, documentary narration</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>She is primarily a jazz singer, though is also a guitarist. Just then, the subway station occupants are rescued.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/4b70_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>4b70_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-5 · ambiguous voice type · 26-40 or 41-60 · clear, smooth, mid-pitch</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary interviewee, narrator, educational explainer</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic; voice type: both listening passes heard female-sounding, but the median pitch is 137 Hz, so the filter marked it ambiguous</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>for voice cloning. It was taken off and we had the hearing as normal. However, after two years the funding was failing miserably.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Cicada_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Cicada_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-6 · male-sounding · 18-25 · clear, youthful, smooth</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>young student, app onboarding narrator, tech support agent</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>I am 18 years old, I am also of legal age in my country of residence, and I have read and agree with Gutai&#x27;s term and policy.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/robert_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>robert_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-7 · male-sounding · 18-25 · youthful, earnest, soft</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>young everyman, teen friend, romantic lead</dd></div><div><dt>Notes from our listening filter</dt><dd>muffled, robotic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>because I really want to use my voice. I&#x27;m making a lot of projects, struggling in life. I want to marry my girlfriend. I will.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/efeb_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>efeb_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-8 · male-sounding · 18-25 or 26-40 · clear, bright, youthful</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American, casual young-adult speech</dd></div><div><dt>Character ideas</dt><dd>young friend or peer, tech support helper, casual narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>We will ask you to read a short text out loud. Afterwards, you can say whatever you want. Have fun with it. The TTS is good at reproducing tone and mannerisms of the voice.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/ClassicWizard_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>ClassicWizard_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-9 · male-sounding · 26-40 · clear, calm, mid-pitch</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>everyday narrator, corporate explainer, friendly teacher</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>They play by the bay every day. The boy enjoys making noise. How now, brown cow? She tries to buy the bright kite.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Jeffrey_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Jeffrey_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-10 · male-sounding · 26-40 · clear, smooth, warm</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>instructional narrator, corporate explainer voice, audiobook narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>cut off, muffled; listening passes split on accent: US / Australia/NZ / US</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>the reasons of my voice. The last ten seconds of this recording will be used as a voice sample. Try and use the same tone throughout the recording to make it easier to</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/dwp_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>dwp_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-11 · male-sounding · 26-40 · soft, clear, slightly breathy</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary narrator, educational explainer, audiobook reader</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, noise; voice type: 2 of 3 listening passes heard male-sounding; listening passes split on accent: UK-England / US / US</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>For voice cloning, diagnosis is typically based on the symptoms, it seems there are always new rumors about it.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Nick_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Nick_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-12 · male-sounding · 26-40 · warm, clear, youthful</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>podcast host, everyday young protagonist, audiobook narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>none flagged</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>models. I don&#x27;t really know what else to say, so I will just continue to keep talking. I am looking at my bookshelf now.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/BrokenHypocrite_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>BrokenHypocrite_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-13 · male-sounding · 26-40 · warm, relaxed, low</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>podcast host, tech explainer, casual narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, muffled, noise</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>say in a voice that&#x27;s usable and you can try to um basically use different tones different ways</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Wealthiest_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Wealthiest_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-14 · male-sounding · 26-40 or 41-60 · clear, warm, smooth</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary narrator, corporate explainer, audiobook narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>on demand, usually when a number of passengers is met. The software uses a logo of a small penguin wearing a red scarf.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Allen_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Allen_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-15 · male-sounding · 26-40 or 41-60 · flat, nasal, mid-range</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary narrator, audiobook reader, educational explainer voice</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, muffled</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>voice cloning. Elytra oblong with 10 rows of punctures at each electron base. The old tradition still lives on though.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Jimmy_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Jimmy_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-16 · male-sounding · 26-40 or 41-60 · warm, measured, calm</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary narrator, museum audio guide, audiobook narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic, muffled</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>workers. He is known for his landscapes with villages and cityscapes with genre scenes.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/8935_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>8935_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-17 · male-sounding · 26-40 or 41-60 · warm, steady, clear</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>audiobook narrator, documentary explainer, corporate spokesperson</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>I consent to my voice being used for voice cloning. An Abathur operates for only short periods of the year. He decorated the box with catching graphics so it looked like an art piece.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/stein_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>stein_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-18 · male-sounding · 41-60 · calm, smooth, clear</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary narrator, audiobook narrator, corporate presenter</dd></div><div><dt>Notes from our listening filter</dt><dd>cut off, metallic, robotic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>cloning. There are of hiking trails around the chasm. Rock climbing is allowed by permit. He was narrowly defeated in the second round of voting.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Greggy_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Greggy_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-19 · male-sounding · 41-60 · clear, mid-pitch, warm</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>podcast host, everyday office worker, documentary narrator</dd></div><div><dt>Notes from our listening filter</dt><dd>metallic</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>know if it&#x27;s the first 10 seconds or the last 10 seconds that you&#x27;re going to use it says it&#x27;s the last 10 seconds and if that&#x27;s the case and i&#x27;d shut up previously there would just be 10 seconds</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Selfie_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Selfie_enhanced.wav</code></p></td>
+</tr>
+<tr>
+<td data-label="Voice"><p class="label">US-20 · male-sounding · 41-60 · warm, clear, steady</p>
+<dl class="meta"><div><dt>Accent (filter's guess)</dt><dd>General American</dd></div><div><dt>Character ideas</dt><dd>documentary narrator, audiobook narrator, teacher/professor</dd></div><div><dt>Notes from our listening filter</dt><dd>muffled</dd></div></dl></td>
+<td data-label="What the sample says (automatic transcript)"><blockquote>Patterson&#x27;s success at a young age led him to be promoted for other offices. So can be seen in the deleted scenes of the home.</blockquote></td>
+<td data-label="Listen / download"><a class="open" href="https://huggingface.co/kyutai/tts-voices/blob/main/voice-donations/Youfied_enhanced.wav" target="_blank" rel="noopener noreferrer">Open on Kyutai's&nbsp;page<span aria-hidden="true">&nbsp;&#8599;</span></a><p class="file">file: <code>Youfied_enhanced.wav</code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<footer>
+<p>Source: Kyutai, <a href="https://huggingface.co/kyutai/tts-voices/tree/main/voice-donations" target="_blank" rel="noopener noreferrer">huggingface.co/kyutai/tts-voices, folder voice-donations</a>, revision <code>323332d33f997de8394f24a193e1a76df720e01a</code>. Licence: CC0, Unmute Voice Donation Project terms v1. Thank you to Kyutai and to every voice donor.</p>
+<p>All 26 links were checked on 2026-10-24. TheLocalLab members kit, 2026-10-24.</p>
+</footer>
+</div>
+</body>
+</html>

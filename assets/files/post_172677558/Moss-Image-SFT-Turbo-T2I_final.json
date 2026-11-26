@@ -1,0 +1,971 @@
+{
+  "id": "54bb395d-3e60-4c94-b525-85523901575b",
+  "revision": 0,
+  "last_node_id": 494,
+  "last_link_id": 743,
+  "nodes": [
+    {
+      "id": 13,
+      "type": "ResolutionSelector",
+      "pos": [
+        279.4168179237242,
+        3185.59419325196
+      ],
+      "size": [
+        300,
+        190
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            707
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            708
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "2:3 (Portrait Photo)",
+        2,
+        8
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "2:3 (Portrait Photo)",
+        "megapixels": 2,
+        "multiple": 8
+      }
+    },
+    {
+      "id": 461,
+      "type": "SaveImageAdvanced",
+      "pos": [
+        2037.279720788723,
+        2276.356483106163
+      ],
+      "size": [
+        816.3149096276807,
+        798.2393939595131
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 736
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0"
+      },
+      "widgets_values": [
+        "MOSS_image",
+        "png",
+        "8-bit",
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "MOSS_image",
+        "format": "png",
+        "format.bit_depth": "8-bit",
+        "format.input_color_space": "sRGB"
+      }
+    },
+    {
+      "id": 463,
+      "type": "MarkdownNote",
+      "pos": [
+        -190.16287288025222,
+        2795.8162701106035
+      ],
+      "size": [
+        420,
+        620
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Model links",
+      "properties": {},
+      "widgets_values": [
+        "## MOSS-Image SFT (Turbo) - Text to Image\n\n[MOSS-Image](https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT) by the OpenMOSS Team, using the ComfyUI build from [Comfy-Org/MOSS-Image](https://huggingface.co/Comfy-Org/MOSS-Image). Fast local text-to-image - about **5-10 seconds** for a 1024x1024 on this setup, quicker than Qwen-Image 2.1.\n\nThis workflow loads the **8-step turbo DMD LoRA by default**, so you get turbo speed out of the box. It reuses the Qwen text-encode node (it still works for MOSS) and adds a 2x upscale.\n\n### Models\n**diffusion_models**\n- [moss_image_sft_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/diffusion_models) -> `models/diffusion_models/` (default)\n\n**text_encoders** (set CLIPLoader type = `moss_image`)\n- [qwen3.5_9b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/text_encoders) -> `models/text_encoders/` (standard)\n- [qwen3.5_9b_w4a8_gptq.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/text_encoders) -> `models/text_encoders/` (further quantized, lower VRAM - runs on 6-8 GB)\n\n**vae**\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/vae) -> `models/vae/` (MOSS uses the Flux 2 VAE)\n\n**loras (8-step turbo DMD, by lodestones)**\n- [lora_latest.safetensors](https://huggingface.co/lodestones/MOSS-Image-SFT-8-steps-dmd/tree/main) -> `models/loras/` (**loaded by default**; `_latest` = newest checkpoint)\n- [lora.safetensors](https://huggingface.co/lodestones/MOSS-Image-SFT-8-steps-dmd/tree/main) -> `models/loras/` (alternate)\n\n### Settings\nKSampler: **8 steps, cfg 1, sampler euler_ancestral, scheduler simple.** With the 8-step LoRA you don't need to raise steps.\n\n### GGUF (not working yet - left in for later)\nThe **GGUF loader group is bypassed on purpose.** The standard ComfyUI-GGUF (city96) `UnetLoaderGGUF` node does **not** support the MOSS-Image architecture yet - it expects a `moss_image` marker the stock node can't read. GGUF quants do exist ([realrebelai/MOSS-Image_GGUFs](https://huggingface.co/realrebelai/MOSS-Image_GGUFs)) but currently need an experimental MOSS-specific bridge node. I've left the GGUF group in so it's ready the moment native support lands - until then, use the int8 diffusion model above (pair it with the w4a8 encoder for low VRAM).\n\n### Custom nodes\n- rgthree-comfy (Any Switch, Fast Groups Bypasser)\n- ComfyUI-GGUF (for the future GGUF path)\n\nUpdate ComfyUI to the latest - MOSS-Image support is in recent builds. MOSS-Image by the OpenMOSS Team; 8-step turbo LoRA by lodestones."
+      ],
+      "widgets_values_named": {
+        "text": "## MOSS-Image SFT (Turbo) - Text to Image\n\n[MOSS-Image](https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT) by the OpenMOSS Team, using the ComfyUI build from [Comfy-Org/MOSS-Image](https://huggingface.co/Comfy-Org/MOSS-Image). Fast local text-to-image - about **5-10 seconds** for a 1024x1024 on this setup, quicker than Qwen-Image 2.1.\n\nThis workflow loads the **8-step turbo DMD LoRA by default**, so you get turbo speed out of the box. It reuses the Qwen text-encode node (it still works for MOSS) and adds a 2x upscale.\n\n### Models\n**diffusion_models**\n- [moss_image_sft_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/diffusion_models) -> `models/diffusion_models/` (default)\n\n**text_encoders** (set CLIPLoader type = `moss_image`)\n- [qwen3.5_9b_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/text_encoders) -> `models/text_encoders/` (standard)\n- [qwen3.5_9b_w4a8_gptq.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/text_encoders) -> `models/text_encoders/` (further quantized, lower VRAM - runs on 6-8 GB)\n\n**vae**\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/MOSS-Image/tree/main/vae) -> `models/vae/` (MOSS uses the Flux 2 VAE)\n\n**loras (8-step turbo DMD, by lodestones)**\n- [lora_latest.safetensors](https://huggingface.co/lodestones/MOSS-Image-SFT-8-steps-dmd/tree/main) -> `models/loras/` (**loaded by default**; `_latest` = newest checkpoint)\n- [lora.safetensors](https://huggingface.co/lodestones/MOSS-Image-SFT-8-steps-dmd/tree/main) -> `models/loras/` (alternate)\n\n### Settings\nKSampler: **8 steps, cfg 1, sampler euler_ancestral, scheduler simple.** With the 8-step LoRA you don't need to raise steps.\n\n### GGUF (not working yet - left in for later)\nThe **GGUF loader group is bypassed on purpose.** The standard ComfyUI-GGUF (city96) `UnetLoaderGGUF` node does **not** support the MOSS-Image architecture yet - it expects a `moss_image` marker the stock node can't read. GGUF quants do exist ([realrebelai/MOSS-Image_GGUFs](https://huggingface.co/realrebelai/MOSS-Image_GGUFs)) but currently need an experimental MOSS-specific bridge node. I've left the GGUF group in so it's ready the moment native support lands - until then, use the int8 diffusion model above (pair it with the w4a8 encoder for low VRAM).\n\n### Custom nodes\n- rgthree-comfy (Any Switch, Fast Groups Bypasser)\n- ComfyUI-GGUF (for the future GGUF path)\n\nUpdate ComfyUI to the latest - MOSS-Image support is in recent builds. MOSS-Image by the OpenMOSS Team; 8-step turbo LoRA by lodestones."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 468,
+      "type": "MarkdownNote",
+      "pos": [
+        -188.09455852336166,
+        2511.798557615941
+      ],
+      "size": [
+        420,
+        220
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Usage",
+      "properties": {},
+      "widgets_values": [
+        "## Size\nOutput size comes from the ResolutionSelector (width/height). Pick megapixels + an aspect ratio and it works out the exact size (rounded to a multiple). This template is set to 2 MP at 2:3, then runs a **2x lanczos upscale** after generation.\n\n## Parameters\n- prompt: what to generate.\n- negative_prompt: unused while cfg is 1.\n- cfg: keep **1** for the turbo path. Raise it only if you actually use a negative prompt.\n- steps: **8** with the 8-step turbo DMD LoRA. No need to push higher.\n- sampler euler_ancestral, scheduler simple."
+      ],
+      "widgets_values_named": {
+        "text": "## Size\nOutput size comes from the ResolutionSelector (width/height). Pick megapixels + an aspect ratio and it works out the exact size (rounded to a multiple). This template is set to 2 MP at 2:3, then runs a **2x lanczos upscale** after generation.\n\n## Parameters\n- prompt: what to generate.\n- negative_prompt: unused while cfg is 1.\n- cfg: keep **1** for the turbo path. Raise it only if you actually use a negative prompt.\n- steps: **8** with the 8-step turbo DMD LoRA. No need to push higher.\n- sampler euler_ancestral, scheduler simple."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 475,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -74.26980604527151,
+        2323.9625799939545
+      ],
+      "size": [
+        294.3544067382812,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "black",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 479,
+      "type": "UNETLoader",
+      "pos": [
+        266.2813287177789,
+        2475.069186977841
+      ],
+      "size": [
+        510,
+        90
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            711
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "moss_image_sft_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "moss_image_sft_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 480,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        887.4747340886569,
+        2343.35596486095
+      ],
+      "size": [
+        530,
+        680
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 698
+        },
+        {
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            742
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            743
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            735
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "A slow orbital camera motion circling the woman as she rests poolside, surrounded by shimmering golden water reflections in the background. She gently raises one hand to push a strand of hair back from her temple, tilting her face slightly toward the direct rays of the setting sun. Cinematic 35mm aesthetic with warm ambient glow. Maintain the exact rich tan olive complexion, high-contrast warm lighting, brunette hair, and facial anatomy from the reference image without light-washing her skin.",
+        "nsfw, worst quality, bad anatomy, watermark, jpeg artifact",
+        1024
+      ],
+      "widgets_values_named": {
+        "prompt": "A slow orbital camera motion circling the woman as she rests poolside, surrounded by shimmering golden water reflections in the background. She gently raises one hand to push a strand of hair back from her temple, tilting her face slightly toward the direct rays of the setting sun. Cinematic 35mm aesthetic with warm ambient glow. Maintain the exact rich tan olive complexion, high-contrast warm lighting, brunette hair, and facial anatomy from the reference image without light-washing her skin.",
+        "negative_prompt": "nsfw, worst quality, bad anatomy, watermark, jpeg artifact",
+        "resolution": 1024
+      }
+    },
+    {
+      "id": 481,
+      "type": "CLIPLoader",
+      "pos": [
+        265.12703692017726,
+        2842.003707469734
+      ],
+      "size": [
+        510,
+        120
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            698
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3.5_9b_w4a8_gptq.safetensors",
+        "moss_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3.5_9b_w4a8_gptq.safetensors",
+        "type": "moss_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 482,
+      "type": "VAELoader",
+      "pos": [
+        268.2630764524263,
+        3006.2481202889358
+      ],
+      "size": [
+        510,
+        70
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            699
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "flux2-vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "flux2-vae.safetensors"
+      }
+    },
+    {
+      "id": 483,
+      "type": "EmptyLatentImage",
+      "pos": [
+        616.1749974171239,
+        3217.9191673840483
+      ],
+      "size": [
+        300,
+        120
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 707
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 708
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 484,
+      "type": "VAEDecode",
+      "pos": [
+        1668.1357562347919,
+        2669.4135241653476
+      ],
+      "size": [
+        230,
+        60
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 700
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 699
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            706
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 485,
+      "type": "KSampler",
+      "pos": [
+        1647.2891707521349,
+        2331.616473884686
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 732
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 742
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 743
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 735
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            700
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        26636659190258,
+        "fixed",
+        8,
+        1,
+        "euler_ancestral",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 26636659190258,
+        "control_after_generate": "fixed",
+        "steps": 8,
+        "cfg": 1,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 486,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        269.406274875535,
+        2331.99545296839
+      ],
+      "size": [
+        505.9084172302993,
+        61.26518245745336
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            710
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-gguf",
+        "ver": "1.1.10",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "MOSS-Image-SFT-Q5_K_M.gguf"
+      ],
+      "widgets_values_named": {
+        "unet_name": "MOSS-Image-SFT-Q5_K_M.gguf"
+      }
+    },
+    {
+      "id": 487,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        430.7844123655801,
+        2632.3758318644695
+      ],
+      "size": [
+        263.72841796875,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "MODEL",
+          "link": 710
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "MODEL",
+          "link": 711
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "name": "any_05",
+          "type": "MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "MODEL",
+          "name": "*",
+          "type": "MODEL",
+          "links": [
+            704
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2608210019",
+        "Node name for S&R": "Any Switch (rgthree)"
+      }
+    },
+    {
+      "id": 488,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        268.1964175808712,
+        2713.114637619312
+      ],
+      "size": [
+        506.7247054335626,
+        82
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 704
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            732
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "lora_latest.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "lora_latest.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 489,
+      "type": "ImageScaleBy",
+      "pos": [
+        1650.633379275898,
+        2851.9870981622935
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 706
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            736
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0",
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "widgets_values": [
+        "lanczos",
+        2
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "scale_by": 2
+      }
+    }
+  ],
+  "links": [
+    [
+      698,
+      481,
+      0,
+      480,
+      0,
+      "CLIP"
+    ],
+    [
+      699,
+      482,
+      0,
+      484,
+      1,
+      "VAE"
+    ],
+    [
+      700,
+      485,
+      0,
+      484,
+      0,
+      "LATENT"
+    ],
+    [
+      704,
+      487,
+      0,
+      488,
+      0,
+      "MODEL"
+    ],
+    [
+      706,
+      484,
+      0,
+      489,
+      0,
+      "IMAGE"
+    ],
+    [
+      707,
+      13,
+      0,
+      483,
+      0,
+      "INT"
+    ],
+    [
+      708,
+      13,
+      1,
+      483,
+      1,
+      "INT"
+    ],
+    [
+      732,
+      488,
+      0,
+      485,
+      0,
+      "MODEL"
+    ],
+    [
+      735,
+      480,
+      2,
+      485,
+      3,
+      "LATENT"
+    ],
+    [
+      742,
+      480,
+      0,
+      485,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      743,
+      480,
+      1,
+      485,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      736,
+      489,
+      0,
+      461,
+      0,
+      "IMAGE"
+    ],
+    [
+      710,
+      486,
+      0,
+      487,
+      0,
+      "MODEL"
+    ],
+    [
+      711,
+      479,
+      0,
+      487,
+      1,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 42,
+      "title": "Models",
+      "bounding": [
+        252.24699396643837,
+        2231.7652500807226,
+        540.6758089791551,
+        852.8571720342723
+      ],
+      "flags": {}
+    },
+    {
+      "id": 43,
+      "title": "Image Size",
+      "bounding": [
+        257.3823963766508,
+        3110.291132320057,
+        672.7615011522414,
+        295.63968416155603
+      ],
+      "flags": {}
+    },
+    {
+      "id": 44,
+      "title": "Conditioning",
+      "bounding": [
+        807.4747340886569,
+        2233.35596486095,
+        700,
+        860
+      ],
+      "flags": {}
+    },
+    {
+      "id": 45,
+      "title": "Sampling",
+      "bounding": [
+        1537.474734088657,
+        2233.35596486095,
+        470,
+        860
+      ],
+      "flags": {}
+    },
+    {
+      "id": 46,
+      "title": "GGUF Model",
+      "bounding": [
+        257.0658209234041,
+        2267.6999643859735,
+        524.4735520454232,
+        133.05897036731562
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 47,
+      "title": "Diffusion Model",
+      "bounding": [
+        258.926911188694,
+        2411.8571102946357,
+        524.4735816898235,
+        157.54776468721548
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 48,
+      "title": "LoRA Model",
+      "bounding": [
+        258.7288799801629,
+        2645.8270491999015,
+        524.7449827887914,
+        155.91518828068877
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 49,
+      "title": "Upscaling",
+      "bounding": [
+        1638.2224811893332,
+        2769.74244543303,
+        295.1173161435595,
+        187.43151383422935
+      ],
+      "color": "#444",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.55.17",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 0.5795216334752825,
+      "offset": [
+        300.4413612818794,
+        -1899.9258551994399
+      ]
+    }
+  },
+  "version": 0.4
+}

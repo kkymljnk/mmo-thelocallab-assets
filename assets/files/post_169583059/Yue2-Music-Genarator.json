@@ -1,0 +1,860 @@
+{
+  "id": "8946c283-b05c-4bea-84dc-f0ea169054c6",
+  "revision": 0,
+  "last_node_id": 71,
+  "last_link_id": 163,
+  "nodes": [
+    {
+      "id": 17,
+      "type": "VAEDecodeAudioTiled",
+      "pos": [
+        2954.5413749999966,
+        -103.169874999999
+      ],
+      "size": [
+        210.9419921875,
+        102
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 22
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            157
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "VAEDecodeAudioTiled"
+      },
+      "widgets_values": [
+        1920,
+        128
+      ],
+      "widgets_values_named": {
+        "tile_size": 1920,
+        "overlap": 128
+      }
+    },
+    {
+      "id": 8,
+      "type": "KSampler",
+      "pos": [
+        2685.3985873124293,
+        -119.41186717888101
+      ],
+      "size": [
+        227.81404958680423,
+        271.3749999999995
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 133
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 134
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        89,
+        "increment",
+        42,
+        1,
+        "euler",
+        "normal",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 89,
+        "control_after_generate": "increment",
+        "steps": 42,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 21,
+      "type": "SaveAudioAdvanced",
+      "pos": [
+        3192.713500000372,
+        -99.99999999999281
+      ],
+      "size": [
+        370.48393756102314,
+        160
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 157
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "SaveAudioAdvanced"
+      },
+      "widgets_values": [
+        "audio/YuE2-e-Auto",
+        "mp3",
+        "320k"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "audio/YuE2-e-Auto",
+        "format": "mp3",
+        "format.quality": "320k"
+      }
+    },
+    {
+      "id": 59,
+      "type": "AudioEncoderLoader",
+      "pos": [
+        1356.7030680729831,
+        447.1216421024947
+      ],
+      "size": [
+        284.966796875,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO_ENCODER",
+          "type": "AUDIO_ENCODER",
+          "links": [
+            123
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "AudioEncoderLoader"
+      },
+      "widgets_values": [
+        "sheetsage2_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "audio_encoder_name": "sheetsage2_bf16.safetensors"
+      }
+    },
+    {
+      "id": 66,
+      "type": "LoadAudio",
+      "pos": [
+        1349.6175769718197,
+        565.8904174845319
+      ],
+      "size": [
+        297.6018555821363,
+        148.37499999999602
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            158
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "Kina - Get You The Moon (Official Video) ft. Sn\u00f8w (128kbit_AAC).m4a",
+        null,
+        null
+      ],
+      "widgets_values_named": {
+        "audio": "Kina - Get You The Moon (Official Video) ft. Sn\u00f8w (128kbit_AAC).m4a",
+        "upload": null
+      }
+    },
+    {
+      "id": 67,
+      "type": "PreviewAny",
+      "pos": [
+        1687.3465006493109,
+        581.9386934098483
+      ],
+      "size": [
+        285.42855224609366,
+        272.1176391601564
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 159
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 58,
+      "type": "SheetSage2AudioToABC",
+      "pos": [
+        1690.6660189096121,
+        449.50323256171833
+      ],
+      "size": [
+        272.1861328125,
+        78
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio_encoder",
+          "type": "AUDIO_ENCODER",
+          "link": 123
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 158
+        }
+      ],
+      "outputs": [
+        {
+          "name": "abc",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            159,
+            160
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "SheetSage2AudioToABC"
+      },
+      "widgets_values": [
+        "full"
+      ],
+      "widgets_values_named": {
+        "mode": "full"
+      }
+    },
+    {
+      "id": 15,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1629.7812838290529,
+        -316.166467661232
+      ],
+      "size": [
+        345.2867104209206,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            18
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            132
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "yue2_3b_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "ckpt_name": "yue2_3b_bf16.safetensors"
+      }
+    },
+    {
+      "id": 5,
+      "type": "EmptyYuE2LatentAudio",
+      "pos": [
+        2437.032200476509,
+        -59.23501512462515
+      ],
+      "size": [
+        231.59381189811165,
+        82
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "link": 135
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "EmptyYuE2LatentAudio"
+      },
+      "widgets_values": [
+        120,
+        1
+      ],
+      "widgets_values_named": {
+        "seconds": 120,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 63,
+      "type": "YuE2GenerateMusic",
+      "pos": [
+        2024.889413170285,
+        -288.60171815833104
+      ],
+      "size": [
+        389.688067237189,
+        1055.3795314362371
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 132
+        },
+        {
+          "name": "style",
+          "type": "STRING",
+          "widget": {
+            "name": "style"
+          },
+          "link": 162
+        },
+        {
+          "name": "abc",
+          "type": "STRING",
+          "widget": {
+            "name": "abc"
+          },
+          "link": 160
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            133,
+            134
+          ]
+        },
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "links": [
+            135
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "YuE2GenerateMusic"
+      },
+      "widgets_values": [
+        "soulful pop song with warm chords, smooth vocals and late-night grooves instrumental, dark atmospheric style with heavy 808s, haunting melodies.",
+        "[Intro]\n(Ah-ah-ah, ah-ah-ah)\n(Ooh, ooh, ooh)\nYeah, yeah, they say...\n\n[Verse 1]\nShe walk in the room, I lose my mind\nEvery step she take, it's like a sign\nNo need for words, I just know the feeling\nWhen she look at me, the whole world stop\nMy heart dey beat like a drum in Lagos\nShe sweet like honey, I can't resist\n\n[Pre-Chorus]\nTell me, tell me, what you want from me?\nI give you all I got, you see?\nNo lie, no game, just me and you\nUnder this moon, what else I do?\n\n[Chorus]\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nEvery time she smile, I melt, I melt\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nI don't need nothing else, I just need her\nI just need her, yeah\n\n[Verse 2]\nMorning come, I still dey dream about her\nHer laugh like rain on a hot day\nNo need for fancy car or diamond ring\nJust her hand in mine, that's everything\nMy mama say \"Son, you dey crazy\"\nI say \"Mama, she sweet like honey\"\n\n[Pre-Chorus]\nTell me, tell me, what you want from me?\nI give you all I got, you see?\nNo lie, no game, just me and you\nUnder this moon, what else I do?\n\n[Chorus]\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nEvery time she smile, I melt, I melt\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nI don't need nothing else, I just need her\nI just need her, yeah\n\n[Bridge]\n(Ooh, ooh, ooh)\nNa you, na you, na you I see\n(Ooh, ooh, ooh)\nFrom the top to the bottom, she free\n(Ooh, ooh, ooh)\nNo chain, no lock, just pure love\nShe sweet like honey, I swear to God\n\n[Chorus]\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nEvery time she smile, I melt, I melt\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nI don't need nothing else, I just need her\nI just need her, yeah\n\n[Outro]\n(Ah-ah-ah, ah-ah-ah)\n(Sweet like honey, o!)\n(Sweet like honey, o!)\n(Yeah, yeah, yeah...)\n\n",
+        "",
+        849741540525996,
+        "randomize",
+        "melody",
+        132,
+        0.95,
+        0.95,
+        100,
+        1.2
+      ],
+      "widgets_values_named": {
+        "style": "soulful pop song with warm chords, smooth vocals and late-night grooves instrumental, dark atmospheric style with heavy 808s, haunting melodies.",
+        "lyrics": "[Intro]\n(Ah-ah-ah, ah-ah-ah)\n(Ooh, ooh, ooh)\nYeah, yeah, they say...\n\n[Verse 1]\nShe walk in the room, I lose my mind\nEvery step she take, it's like a sign\nNo need for words, I just know the feeling\nWhen she look at me, the whole world stop\nMy heart dey beat like a drum in Lagos\nShe sweet like honey, I can't resist\n\n[Pre-Chorus]\nTell me, tell me, what you want from me?\nI give you all I got, you see?\nNo lie, no game, just me and you\nUnder this moon, what else I do?\n\n[Chorus]\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nEvery time she smile, I melt, I melt\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nI don't need nothing else, I just need her\nI just need her, yeah\n\n[Verse 2]\nMorning come, I still dey dream about her\nHer laugh like rain on a hot day\nNo need for fancy car or diamond ring\nJust her hand in mine, that's everything\nMy mama say \"Son, you dey crazy\"\nI say \"Mama, she sweet like honey\"\n\n[Pre-Chorus]\nTell me, tell me, what you want from me?\nI give you all I got, you see?\nNo lie, no game, just me and you\nUnder this moon, what else I do?\n\n[Chorus]\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nEvery time she smile, I melt, I melt\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nI don't need nothing else, I just need her\nI just need her, yeah\n\n[Bridge]\n(Ooh, ooh, ooh)\nNa you, na you, na you I see\n(Ooh, ooh, ooh)\nFrom the top to the bottom, she free\n(Ooh, ooh, ooh)\nNo chain, no lock, just pure love\nShe sweet like honey, I swear to God\n\n[Chorus]\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nEvery time she smile, I melt, I melt\nShe sweet, sweet like honey\n(Sweet like honey, o!)\nI don't need nothing else, I just need her\nI just need her, yeah\n\n[Outro]\n(Ah-ah-ah, ah-ah-ah)\n(Sweet like honey, o!)\n(Sweet like honey, o!)\n(Yeah, yeah, yeah...)\n\n",
+        "abc": "",
+        "seed": 849741540525996,
+        "control_after_generate": "randomize",
+        "mode": "melody",
+        "max_duration": 132,
+        "temperature": 0.95,
+        "top_p": 0.95,
+        "top_k": 100,
+        "repetition_penalty": 1.2
+      }
+    },
+    {
+      "id": 69,
+      "type": "SongScribeStylePreset",
+      "pos": [
+        1291.1564506934492,
+        -124.8921770019744
+      ],
+      "size": [
+        398.917299658508,
+        460
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            163
+          ]
+        },
+        {
+          "name": "global_metadata",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "vocal_details",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "arrangement",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "TheLocalLab/ComfyUI-SongScribe",
+        "ver": "014e07922f53069bd43a593c4af3ce7913f88814",
+        "Node name for S&R": "SongScribeStylePreset"
+      },
+      "widgets_values": [
+        "World / Afrobeats",
+        "yue2",
+        "full",
+        "male vocals",
+        "English",
+        "balanced",
+        "none",
+        "none",
+        "none",
+        0,
+        "fixed",
+        "none",
+        0.5,
+        ""
+      ],
+      "widgets_values_named": {
+        "preset": "World / Afrobeats",
+        "format": "yue2",
+        "detail": "full",
+        "vocal": "male vocals",
+        "language": "English",
+        "style": "balanced",
+        "era": "none",
+        "texture": "none",
+        "mood_shift": "none",
+        "seed": 0,
+        "control_after_generate": "fixed",
+        "blend_with": "none",
+        "blend": 0.5,
+        "extra": ""
+      }
+    },
+    {
+      "id": 68,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        1337.2343608899193,
+        -332.3996562217341
+      ],
+      "size": [
+        247.2955078125,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 70,
+      "type": "PreviewAny",
+      "pos": [
+        1711.459158973,
+        -139.70062115679022
+      ],
+      "size": [
+        296.7180652442014,
+        478.50892844094847
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 163
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            162
+          ]
+        }
+      ],
+      "title": "Style Descriptor",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.35.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 71,
+      "type": "MarkdownNote",
+      "pos": [
+        2450.6445714832416,
+        246.55684952868643
+      ],
+      "size": [
+        749.5980934253425,
+        454.0454933621181
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Yue2 Song Generator",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "## YuE2 Song Generator\n\n[YuE2-3B](https://huggingface.co/m-a-p/YuE2-3B) is the m-a-p team's open lyrics-to-song model \u2014 give it lyrics and a style description and it generates a full song with vocals and accompaniment, 48kHz stereo, with an editable melody/chord score layer. It's strong enough to outscore Suno v5 on the WildSongBench benchmark.\n\nThis workflow adds two things on top:\n- **SongScribe Style Preset node** (mine): pick a style from a dropdown and it fills in the style description for you, so you don't have to write it out each time.\n- **SheetSage2**: optional \u2014 upload an existing song and it pulls the background music / melody into a score you can use to seed your new song.\n\n### Models\n- [yue2_3b_bf16.safetensors](https://huggingface.co/Comfy-Org/YuE2/tree/main/checkpoints) -> ComfyUI/models/checkpoints/\n- [sheetsage2_bf16.safetensors](https://huggingface.co/Comfy-Org/YuE2/tree/main/audio_encoders) -> ComfyUI/models/audio_encoders/\nBoth from [Comfy-Org/YuE2](https://huggingface.co/Comfy-Org/YuE2). Model page: [m-a-p/YuE2-3B](https://huggingface.co/m-a-p/YuE2-3B).\n\n### Custom node\nSongScribe (for the style preset node): https://github.com/TheLocalLab/ComfyUI-SongScribe\nJust published to the Comfy Registry, so it may take a day or two to appear in ComfyUI Manager \u2014 if it's not there yet, clone it manually into custom_nodes and restart.\n\n### Notes\n- Runs on ~24GB VRAM (a few-minute song in ~1-2 min on a 4090).\n- Use the Fast Groups Bypasser to toggle the SheetSage2 melody-copy path on/off."
+      ],
+      "widgets_values_named": {
+        "text": "## YuE2 Song Generator\n\n[YuE2-3B](https://huggingface.co/m-a-p/YuE2-3B) is the m-a-p team's open lyrics-to-song model \u2014 give it lyrics and a style description and it generates a full song with vocals and accompaniment, 48kHz stereo, with an editable melody/chord score layer. It's strong enough to outscore Suno v5 on the WildSongBench benchmark.\n\nThis workflow adds two things on top:\n- **SongScribe Style Preset node** (mine): pick a style from a dropdown and it fills in the style description for you, so you don't have to write it out each time.\n- **SheetSage2**: optional \u2014 upload an existing song and it pulls the background music / melody into a score you can use to seed your new song.\n\n### Models\n- [yue2_3b_bf16.safetensors](https://huggingface.co/Comfy-Org/YuE2/tree/main/checkpoints) -> ComfyUI/models/checkpoints/\n- [sheetsage2_bf16.safetensors](https://huggingface.co/Comfy-Org/YuE2/tree/main/audio_encoders) -> ComfyUI/models/audio_encoders/\nBoth from [Comfy-Org/YuE2](https://huggingface.co/Comfy-Org/YuE2). Model page: [m-a-p/YuE2-3B](https://huggingface.co/m-a-p/YuE2-3B).\n\n### Custom node\nSongScribe (for the style preset node): https://github.com/TheLocalLab/ComfyUI-SongScribe\nJust published to the Comfy Registry, so it may take a day or two to appear in ComfyUI Manager \u2014 if it's not there yet, clone it manually into custom_nodes and restart.\n\n### Notes\n- Runs on ~24GB VRAM (a few-minute song in ~1-2 min on a 4090).\n- Use the Fast Groups Bypasser to toggle the SheetSage2 melody-copy path on/off."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      8,
+      5,
+      0,
+      8,
+      3,
+      "LATENT"
+    ],
+    [
+      18,
+      15,
+      0,
+      8,
+      0,
+      "MODEL"
+    ],
+    [
+      22,
+      8,
+      0,
+      17,
+      0,
+      "LATENT"
+    ],
+    [
+      23,
+      15,
+      2,
+      17,
+      1,
+      "VAE"
+    ],
+    [
+      123,
+      59,
+      0,
+      58,
+      0,
+      "AUDIO_ENCODER"
+    ],
+    [
+      132,
+      15,
+      1,
+      63,
+      0,
+      "CLIP"
+    ],
+    [
+      133,
+      63,
+      0,
+      8,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      134,
+      63,
+      0,
+      8,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      135,
+      63,
+      1,
+      5,
+      0,
+      "FLOAT"
+    ],
+    [
+      157,
+      17,
+      0,
+      21,
+      0,
+      "AUDIO"
+    ],
+    [
+      158,
+      66,
+      0,
+      58,
+      1,
+      "AUDIO"
+    ],
+    [
+      159,
+      58,
+      0,
+      67,
+      0,
+      "STRING"
+    ],
+    [
+      160,
+      58,
+      0,
+      63,
+      2,
+      "STRING"
+    ],
+    [
+      162,
+      70,
+      0,
+      63,
+      1,
+      "STRING"
+    ],
+    [
+      163,
+      69,
+      0,
+      70,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Reference Audio To Song",
+      "bounding": [
+        1325.2785420953987,
+        364.49275261411464,
+        671.0363415679931,
+        531.7986624053956
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Style Preset",
+      "bounding": [
+        1278.3990925668945,
+        -199.2634403953376,
+        421.5009583639526,
+        541.2282320742795
+      ],
+      "color": "#444",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        -1977.9921467775516,
+        77.51594845315111
+      ]
+    },
+    "frontendVersion": "1.52.7",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
