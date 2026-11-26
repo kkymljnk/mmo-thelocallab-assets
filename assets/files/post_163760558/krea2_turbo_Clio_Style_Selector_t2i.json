@@ -1,0 +1,1036 @@
+{
+  "id": "00000000-0000-0000-0000-000004ea24e7",
+  "revision": 0,
+  "last_node_id": 26,
+  "last_link_id": 33,
+  "nodes": [
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        1311.7306914145513,
+        67.46501625218916
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 28
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 17,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1297.977852679401,
+        162.2779179781411
+      ],
+      "size": [
+        233.5689453125,
+        46
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 15
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "ImageUpscaleWithModel"
+      }
+    },
+    {
+      "id": 18,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1261.2611732420953,
+        257.10955086812606
+      ],
+      "size": [
+        337.01130721199775,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "2xLexicaRRDBNet_Sharp.pth"
+      ],
+      "widgets_values_named": {
+        "model_name": "2xLexicaRRDBNet_Sharp.pth"
+      }
+    },
+    {
+      "id": 10,
+      "type": "SaveImage",
+      "pos": [
+        1619.0502397799387,
+        70.54997145630892
+      ],
+      "size": [
+        445.5942446154413,
+        464.26572357267946
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "krea2_turbo_2step_lora"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "krea2_turbo_2step_lora"
+      }
+    },
+    {
+      "id": 5,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        450,
+        300
+      ],
+      "size": [
+        430,
+        30
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "ConditioningZeroOut"
+      }
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        450,
+        380
+      ],
+      "size": [
+        430,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 13
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        909.6431697720369,
+        71.64993203296046
+      ],
+      "size": [
+        330,
+        262
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 27
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 25
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        853801751352720,
+        "fixed",
+        2,
+        1,
+        "euler",
+        "sgm_uniform",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 853801751352720,
+        "control_after_generate": "fixed",
+        "steps": 2,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "sgm_uniform",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        450,
+        60
+      ],
+      "size": [
+        430,
+        200
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            5,
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A high-detail sculpture of an anime-style character made entirely from layered, intricately cut white paper, masterpiece, craft art, the figure is wearing a hood and boots, sitting while intensely focused on reading an open book, delicate paper textures, tiny paper strips and fragments forming the character's clothing and wings, soft cinematic lighting, warm ambient tones, depth of field with a blurred bookshelf background, focus on the paper art craftsmanship, high-quality material texture, photorealistic presentation of a handmade artistic creation, 8k resolution."
+      ],
+      "widgets_values_named": {
+        "text": "A high-detail sculpture of an anime-style character made entirely from layered, intricately cut white paper, masterpiece, craft art, the figure is wearing a hood and boots, sitting while intensely focused on reading an open book, delicate paper textures, tiny paper strips and fragments forming the character's clothing and wings, soft cinematic lighting, warm ambient tones, depth of field with a blurred bookshelf background, focus on the paper art craftsmanship, high-quality material texture, photorealistic presentation of a handmade artistic creation, 8k resolution."
+      }
+    },
+    {
+      "id": 16,
+      "type": "ResolutionSelector",
+      "pos": [
+        445.79685327223194,
+        532.0875798839863
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            13
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "ResolutionSelector",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        2,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 2,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 11,
+      "type": "MarkdownNote",
+      "pos": [
+        930.028273710284,
+        392.8481290156434
+      ],
+      "size": [
+        560,
+        400
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Krea 2 Turbo - Text-to-Image + Clio Style Library\n\nThis is the Krea 2 Turbo step-LoRA text-to-image workflow, upgraded with the **Clio Style Library** node. Pick a style from its dropdown (~281 built-in art styles) and the node injects a full style description straight into your prompt, so you get consistent images in that look without hand-writing the style each time.\n\nRuns with both the **2-step and 4-step** Krea 2 Turbo distillation LoRAs (by lvladikov) for very fast generations.\n\n### The Clio Style node (manual install - not in Manager yet)\nNode by **lumenastrum**: https://github.com/lumenastrum/clio-style-preview\n\nIt's **not in ComfyUI Manager yet**, so install it by hand. From your ComfyUI folder:\n`cd ComfyUI/custom_nodes`\n`git clone https://github.com/lumenastrum/clio-style-preview clio-style-node`\n\nThe **Show Text** nodes (ComfyUI-Custom-Scripts by pythongosssss) print the exact styled prompt the Clio node built, so you always see what's actually being sent to the model.\n\nStyles stay true to their target most of the time. A few miss - usually fixable with a bit more prompt detail - but overall it holds the look well.\n\n### Files (this workflow's defaults)\n- [krea2_turbo_fp8.safetensors](https://huggingface.co/AlperKTS/Krea2_FP8/tree/main) -> `models/diffusion_models/` (or a [GGUF quant](https://huggingface.co/vantagewithai/Krea-2-Turbo-GGUF/tree/main) -> `models/unet/`)\n- [qwen3vl_4b_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Qwen3-VL/tree/main/text_encoders) -> `models/text_encoders/`\n- [qwen_image_vae.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/vae) -> `models/vae/`\n- Turbo LoRA -> `models/loras/`: [2-step](https://huggingface.co/lvladikov/Krea2-Turbo-Distill-2step-LoRA/tree/main) or [4-step](https://huggingface.co/lvladikov/Krea2-Turbo-Distill-4step-LoRA/tree/main) rank-64 comfyui build\n\nSet the CLIPLoader **type to `krea2`**.\n\n### Settings\n- **steps 2** (2-step LoRA) or **4** (4-step LoRA), **cfg 1.0** (Turbo is CFG-free)\n- sampler **euler**, scheduler **sgm_uniform**, LoRA strength **1.0**\n- Negative is a `ConditioningZeroOut` - nothing to write at cfg 1.0\n- FP8 default + GGUF loader path - toggle with the Fast Groups Bypasser\n- Upscale nodes included for a clean high-res pass\n\n### Custom nodes\n- **Clio Style Library** - lumenastrum/clio-style-preview (git clone, not in Manager yet)\n- **ComfyUI-Custom-Scripts** (Show Text) - pythongosssss/ComfyUI-Custom-Scripts\n- ComfyUI-GGUF, rgthree-comfy\n\nNode by **lumenastrum**, turbo LoRAs by **lvladikov** - credit to both."
+      ],
+      "widgets_values_named": {
+        "text": "## Krea 2 Turbo - Text-to-Image + Clio Style Library\n\nThis is the Krea 2 Turbo step-LoRA text-to-image workflow, upgraded with the **Clio Style Library** node. Pick a style from its dropdown (~281 built-in art styles) and the node injects a full style description straight into your prompt, so you get consistent images in that look without hand-writing the style each time.\n\nRuns with both the **2-step and 4-step** Krea 2 Turbo distillation LoRAs (by lvladikov) for very fast generations.\n\n### The Clio Style node (manual install - not in Manager yet)\nNode by **lumenastrum**: https://github.com/lumenastrum/clio-style-preview\n\nIt's **not in ComfyUI Manager yet**, so install it by hand. From your ComfyUI folder:\n`cd ComfyUI/custom_nodes`\n`git clone https://github.com/lumenastrum/clio-style-preview clio-style-node`\n\nThe **Show Text** nodes (ComfyUI-Custom-Scripts by pythongosssss) print the exact styled prompt the Clio node built, so you always see what's actually being sent to the model.\n\nStyles stay true to their target most of the time. A few miss - usually fixable with a bit more prompt detail - but overall it holds the look well.\n\n### Files (this workflow's defaults)\n- [krea2_turbo_fp8.safetensors](https://huggingface.co/AlperKTS/Krea2_FP8/tree/main) -> `models/diffusion_models/` (or a [GGUF quant](https://huggingface.co/vantagewithai/Krea-2-Turbo-GGUF/tree/main) -> `models/unet/`)\n- [qwen3vl_4b_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Qwen3-VL/tree/main/text_encoders) -> `models/text_encoders/`\n- [qwen_image_vae.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main/split_files/vae) -> `models/vae/`\n- Turbo LoRA -> `models/loras/`: [2-step](https://huggingface.co/lvladikov/Krea2-Turbo-Distill-2step-LoRA/tree/main) or [4-step](https://huggingface.co/lvladikov/Krea2-Turbo-Distill-4step-LoRA/tree/main) rank-64 comfyui build\n\nSet the CLIPLoader **type to `krea2`**.\n\n### Settings\n- **steps 2** (2-step LoRA) or **4** (4-step LoRA), **cfg 1.0** (Turbo is CFG-free)\n- sampler **euler**, scheduler **sgm_uniform**, LoRA strength **1.0**\n- Negative is a `ConditioningZeroOut` - nothing to write at cfg 1.0\n- FP8 default + GGUF loader path - toggle with the Fast Groups Bypasser\n- Upscale nodes included for a clean high-res pass\n\n### Custom nodes\n- **Clio Style Library** - lumenastrum/clio-style-preview (git clone, not in Manager yet)\n- **ComfyUI-Custom-Scripts** (Show Text) - pythongosssss/ComfyUI-Custom-Scripts\n- ComfyUI-GGUF, rgthree-comfy\n\nNode by **lumenastrum**, turbo LoRAs by **lvladikov** - credit to both."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 21,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        59.63589045169242,
+        79.57750377593207
+      ],
+      "size": [
+        349.3938471843833,
+        67.46899337537769
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-GGUF",
+        "ver": "6ea2651e7df66d7585f6ffee804b20e92fb38b8a",
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "krea2_turbo-Q4_0.gguf"
+      ],
+      "widgets_values_named": {
+        "unet_name": "krea2_turbo-Q4_0.gguf"
+      }
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        46.87742281280502,
+        256.241374718444
+      ],
+      "size": [
+        369.271613350748,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "krea2_turbo_fp8.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "krea2_turbo_fp8.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 22,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        152.73101316183187,
+        395.550815345369
+      ],
+      "size": [
+        263.72841796875,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "MODEL",
+          "link": 29
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "MODEL",
+          "link": 30
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_05",
+          "type": "MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "MODEL",
+          "name": "*",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "2c5342a8cb0eaecaabf61435a5f37dd594c510ba"
+      }
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        44.81506048009665,
+        682.2111939038035
+      ],
+      "size": [
+        370,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_vae.safetensors"
+      }
+    },
+    {
+      "id": 3,
+      "type": "CLIPLoader",
+      "pos": [
+        47.16106887747249,
+        528.7084493346865
+      ],
+      "size": [
+        370,
+        106
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_4b_fp8_scaled.safetensors",
+        "krea2",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+        "type": "krea2",
+        "device": "default"
+      }
+    },
+    {
+      "id": 2,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        50.92573360898322,
+        396.9678867499156
+      ],
+      "size": [
+        370,
+        82
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.36.0",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "krea2_turbo_4step_rank_64_lora_latest_comfyui.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "krea2_turbo_4step_rank_64_lora_latest_comfyui.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 24,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        456.2126614185913,
+        -79.94753893347101
+      ],
+      "size": [
+        296.32976597451227,
+        87.16155481118454
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 25,
+      "type": "ClioStyle",
+      "pos": [
+        -376.6008593918739,
+        35.19951731003701
+      ],
+      "size": [
+        400,
+        456
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "styled_prompt",
+          "type": "STRING",
+          "links": [
+            32,
+            33
+          ]
+        },
+        {
+          "name": "style_name",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "lumenastrum/clio-style-preview",
+        "ver": "82b8b79a2e52d3a53d52ba11c99c100c991dc15f",
+        "Node name for S&R": "ClioStyle"
+      },
+      "widgets_values": [
+        "a young woman standing behind a transparent glass table in a sophisticated modern apartment at night. She is wearing a fitted black sleeveless dress and a thin silver necklace.",
+        "Pixar  Animation",
+        "Subject: {prompt}. Style: {name}: {style} ",
+        ""
+      ],
+      "widgets_values_named": {
+        "prompt": "a young woman standing behind a transparent glass table in a sophisticated modern apartment at night. She is wearing a fitted black sleeveless dress and a thin silver necklace.",
+        "style": "Pixar  Animation",
+        "template": "Subject: {prompt}. Style: {name}: {style} ",
+        "style_preview": ""
+      }
+    },
+    {
+      "id": 26,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -375.39479120334863,
+        535.0147212875473
+      ],
+      "size": [
+        401.1983321830112,
+        248.73979352505637
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "609f3afaa74b2f88ef9ce8d939626065e3247469",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Subject: a young woman standing behind a transparent glass table in a sophisticated modern apartment at night. She is wearing a fitted black sleeveless dress and a thin silver necklace.. Style: Pixar  Animation: A richly rendered 3D-illustration style built on soft, warm subsurface-scattered lighting that gives skin a believable inner glow, meticulously smooth volumetric modeling balancing appealing, rounded proportion with convincing dimensional weight, gentle, cinematic three-point lighting establishing wholesome, inviting mood within every frame, confident ambient occlusion and soft shadow settling naturally into every contour, and a polished, heartwarming studio-grade animation intensity built for broad, emotionally resonant appeal. Influenced by: Pixar, contemporary 3D-animation rendering technique, subsurface-scattering character-design practice, cinematic three-point lighting method, mainstream feature-animation studio pipeline."
+      ],
+      "widgets_values_named": {
+        "text_0": "Subject: a young woman standing behind a transparent glass table in a sophisticated modern apartment at night. She is wearing a fitted black sleeveless dress and a thin silver necklace.. Style: Pixar  Animation: A richly rendered 3D-illustration style built on soft, warm subsurface-scattered lighting that gives skin a believable inner glow, meticulously smooth volumetric modeling balancing appealing, rounded proportion with convincing dimensional weight, gentle, cinematic three-point lighting establishing wholesome, inviting mood within every frame, confident ambient occlusion and soft shadow settling naturally into every contour, and a polished, heartwarming studio-grade animation intensity built for broad, emotionally resonant appeal. Influenced by: Pixar, contemporary 3D-animation rendering technique, subsurface-scattering character-design practice, cinematic three-point lighting method, mainstream feature-animation studio pipeline."
+      }
+    }
+  ],
+  "links": [
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      4,
+      0,
+      5,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      1,
+      "VAE"
+    ],
+    [
+      13,
+      16,
+      0,
+      6,
+      0,
+      "INT"
+    ],
+    [
+      14,
+      16,
+      1,
+      6,
+      1,
+      "INT"
+    ],
+    [
+      15,
+      18,
+      0,
+      17,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      16,
+      9,
+      0,
+      17,
+      1,
+      "IMAGE"
+    ],
+    [
+      17,
+      17,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      4,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      5,
+      0,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      26,
+      6,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      27,
+      2,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      28,
+      7,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      31,
+      22,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      32,
+      25,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      33,
+      25,
+      0,
+      26,
+      0,
+      "STRING"
+    ],
+    [
+      29,
+      21,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      30,
+      1,
+      0,
+      22,
+      1,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "GGUF",
+      "bounding": [
+        47.35676465792503,
+        -0.5658180837464346,
+        375.2679122938955,
+        167.40601766390915
+      ],
+      "color": "#444",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Diffusion Model",
+      "bounding": [
+        41.83745562728657,
+        184.01284759598002,
+        379.638199124509,
+        171.04793437772
+      ],
+      "color": "#444",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5730855330116891,
+      "offset": [
+        703.2437574728515,
+        505.52487018982765
+      ]
+    },
+    "frontendVersion": "1.53.6"
+  },
+  "version": 0.4
+}

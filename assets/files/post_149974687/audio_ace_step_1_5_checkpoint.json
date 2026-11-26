@@ -1,0 +1,777 @@
+{
+  "id": "88ac5dad-efd7-40bb-84fe-fbaefdee1fa9",
+  "revision": 0,
+  "last_node_id": 106,
+  "last_link_id": 261,
+  "nodes": [
+    {
+      "id": 18,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1296.0130208333335,
+        -670
+      ],
+      "size": [
+        190,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 256
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 248
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            260,
+            261
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "VAEDecodeAudio",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 47,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        680,
+        30
+      ],
+      "size": [
+        204.134765625,
+        26
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 255
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            119
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "ConditioningZeroOut",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 78,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [
+        927.9052801665005,
+        -677.7845186663353
+      ],
+      "size": [
+        330,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 247
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            175
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "ModelSamplingAuraFlow",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 94,
+      "type": "TextEncodeAceStepAudio1.5",
+      "pos": [
+        278.7332869540776,
+        -659.7957934482114
+      ],
+      "size": [
+        589.5433019826179,
+        645.0282509602436
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 244
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 257
+        },
+        {
+          "name": "duration",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": 251
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            254,
+            255
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "TextEncodeAceStepAudio1.5",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {
+          "seed": true,
+          "duration": true
+        }
+      },
+      "widgets_values": [
+        "Hip-Hop, Backing Vocals, Breathy Vocals, Keyboard, Soundtrack, Synth Bass, Female Vocals",
+        "[Verse 1]\nSirens screaming through the night again\nScreens are flashing, telling us to hate\nEverybody running, nobody knows where\nHearts are heavy, carrying all this weight\nI’m tired of the fighting, tired of the noise\nTurning up the music just to drown it out, boys\n[Pre-Chorus]\nBut deep inside I feel it, something’s gotta give\nWe’re all just looking for a way to live\n[Chorus]\nAll I want is peace, all I want is love\nLight the sky above us, send it from above\nNo more tears falling, no more breaking hearts\nCan we start again, can we make a start?\nPeace and love, peace and love\nThat’s all we’re dreaming of\nIn this crazy world, won’t you hold on tight?\nWe can light the sky tonight\n[Verse 2]\nHeadlines bleeding, painting everything red\nPromising tomorrow but it’s already dead\nHands are shaking, reaching for the truth\nBut every channel’s selling us another excuse\nI just wanna walk outside and breathe\nWithout the fear of what tomorrow brings\n[Pre-Chorus]\n‘Cause in the silence I can hear it call\nOne voice, one heart, we can change it all\n[Chorus]\nAll I want is peace, all I want is love\nLight the sky above us, send it from above\nNo more tears falling, no more breaking hearts\nCan we start again, can we make a start?\nPeace and love, peace and love\nThat’s all we’re dreaming of\nIn this crazy world, won’t you hold on tight?\nWe can light the sky tonight\n[Bridge]\n(Oh-oh-oh) What if we put the weapons down?\n(Oh-oh-oh) What if we turned this world around?\nNo more walls between us, no more lines to cross\nJust you and me and everyone, no matter what the cost\nYeah, we’re stronger when we’re one\n[Final Chorus – bigger, belts]\nAll we need is peace, all we need is love\nLight the sky forever, shining from above\nNo more hiding, no more running scared\nWe can heal the hurt, show the world we cared\nPeace and love, peace and love\nIt’s all we’re thinking of\nIn this broken world, let’s make it right\nWe’re gonna light the sky tonight\n(Oh-oh-oh) Light the sky tonight\n(Oh-oh-oh) Peace and love…\n[Outro – fading echoes]\nLight the sky…\nPeace and love…\nLight the sky tonight…\n",
+        50723368811809,
+        "fixed",
+        130,
+        210,
+        "4",
+        "en",
+        "E minor"
+      ]
+    },
+    {
+      "id": 98,
+      "type": "EmptyAceStep1.5LatentAudio",
+      "pos": [
+        -140,
+        -150
+      ],
+      "size": [
+        314.89583333333337,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "link": 250
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            249
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "EmptyAceStep1.5LatentAudio",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {
+          "seconds": true
+        }
+      },
+      "widgets_values": [
+        210,
+        1
+      ]
+    },
+    {
+      "id": 99,
+      "type": "PrimitiveNode",
+      "pos": [
+        -154.25791315645347,
+        -467.1969090226381
+      ],
+      "size": [
+        331.5168551644324,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "links": [
+            250,
+            251
+          ]
+        }
+      ],
+      "title": "Song Duration",
+      "properties": {
+        "Run widget replace on values": false,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        210,
+        "fixed"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "PrimitiveNode",
+      "pos": [
+        -140,
+        -290
+      ],
+      "size": [
+        268.3984375,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "links": [
+            257,
+            258
+          ]
+        }
+      ],
+      "title": "seed",
+      "properties": {
+        "Run widget replace on values": false,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        50723368811809,
+        "randomize"
+      ]
+    },
+    {
+      "id": 105,
+      "type": "MarkdownNote",
+      "pos": [
+        -680,
+        -710
+      ],
+      "size": [
+        420,
+        360
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "## Model Links (for Local Users)\n\n**checkpoints**\n\n- [ace_step_1.5_turbo_aio.safetensors](https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   └── 📂 checkpoints/\n│       └── ace_step_1.5_turbo_aio.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/zh-CN/installation/update_comfyui)) and prepare required models. Desktop/Cloud ship stable builds; nightly-supported models may not be included yet, please wait for the next stable release.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 97,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -210,
+        -670
+      ],
+      "size": [
+        428.09895833333337,
+        98
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            247
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            244
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            248
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "models": [
+          {
+            "name": "ace_step_1.5_turbo_aio.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+            "directory": "checkpoints"
+          }
+        ],
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ace_step_1.5_turbo_aio.safetensors"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        931.1823968372469,
+        -554.8840885020863
+      ],
+      "size": [
+        329.38802083333337,
+        262
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 175
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 254
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 119
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 249
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 258
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            256
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "KSampler",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {
+          "seed": true
+        }
+      },
+      "widgets_values": [
+        50723368811809,
+        "fixed",
+        12,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 106,
+      "type": "PreviewAudio",
+      "pos": [
+        1284.152126186382,
+        -505.59489163006685
+      ],
+      "size": [
+        366.24762448254637,
+        88
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 261
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.0",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 104,
+      "type": "SaveAudioMP3",
+      "pos": [
+        1567.2599691094426,
+        -708.5333673983616
+      ],
+      "size": [
+        550,
+        150
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 260
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "Node name for S&R": "SaveAudioMP3",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "audio/ComfyUI",
+        "V0"
+      ]
+    }
+  ],
+  "links": [
+    [
+      119,
+      47,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      175,
+      78,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      244,
+      97,
+      1,
+      94,
+      0,
+      "CLIP"
+    ],
+    [
+      247,
+      97,
+      0,
+      78,
+      0,
+      "MODEL"
+    ],
+    [
+      248,
+      97,
+      2,
+      18,
+      1,
+      "VAE"
+    ],
+    [
+      249,
+      98,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      250,
+      99,
+      0,
+      98,
+      0,
+      "FLOAT"
+    ],
+    [
+      251,
+      99,
+      0,
+      94,
+      2,
+      "FLOAT"
+    ],
+    [
+      254,
+      94,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      255,
+      94,
+      0,
+      47,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      256,
+      3,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      257,
+      102,
+      0,
+      94,
+      1,
+      "INT"
+    ],
+    [
+      258,
+      102,
+      0,
+      3,
+      4,
+      "INT"
+    ],
+    [
+      260,
+      18,
+      0,
+      104,
+      0,
+      "AUDIO"
+    ],
+    [
+      261,
+      18,
+      0,
+      106,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Step 1 - Load Model",
+      "bounding": [
+        -220,
+        -740,
+        448.09895833333337,
+        181.6
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Step 2 - Duration",
+      "bounding": [
+        -220,
+        -540,
+        450,
+        170
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Step 3 - Prompt",
+      "bounding": [
+        260,
+        -740,
+        640,
+        820
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5402937514897806,
+      "offset": [
+        786.1918514976842,
+        1027.3618133334012
+      ]
+    },
+    "frontendVersion": "1.37.11",
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}
