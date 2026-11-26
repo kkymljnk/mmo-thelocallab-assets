@@ -1,0 +1,1502 @@
+{
+  "last_node_id": 103,
+  "last_link_id": 226,
+  "nodes": [
+    {
+      "id": 73,
+      "type": "KSamplerSelect",
+      "pos": [
+        1211.3831787109375,
+        576.5811767578125
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            212
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "ShowText|pysssss",
+      "pos": [
+        732.1235961914062,
+        53.043174743652344
+      ],
+      "size": [
+        433.1978759765625,
+        167.02740478515625
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "pos": [
+            10,
+            36
+          ],
+          "widget": {
+            "name": "text"
+          },
+          "link": 198
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 6,
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "title": "Ollama API Output(Cannot be edited)",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 91,
+      "type": "Text Concatenate",
+      "pos": [
+        851.1673583984375,
+        554.6759643554688
+      ],
+      "size": [
+        315,
+        238
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "text_a"
+          },
+          "link": 203
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "text_b"
+          },
+          "link": 206
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "text_c"
+          },
+          "link": 207
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "shape": 7,
+          "widget": {
+            "name": "text_d"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            194
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 69,
+      "type": "LTXVConditioning",
+      "pos": [
+        1599.4984130859375,
+        75.53001403808594
+      ],
+      "size": [
+        223.8660125732422,
+        78
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 183
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 184
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            209
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            210
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 99,
+      "type": "RandomNoise",
+      "pos": [
+        1537.6331787109375,
+        -69.47481536865234
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            216
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        580847711335597,
+        "randomize"
+      ]
+    },
+    {
+      "id": 77,
+      "type": "LTXVImgToVideo",
+      "pos": [
+        1208.2196044921875,
+        320.32080078125
+      ],
+      "size": [
+        315,
+        190
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 187
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 188
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 224
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 190
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            183
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            184
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            185,
+            214
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVImgToVideo"
+      },
+      "widgets_values": [
+        512,
+        512,
+        97,
+        1
+      ]
+    },
+    {
+      "id": 97,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1189.306640625,
+        152.37535095214844
+      ],
+      "size": [
+        355.20001220703125,
+        106
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 216
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 215
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 212
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 213
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 214
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            217
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 76,
+      "type": "Note",
+      "pos": [
+        261.15594482421875,
+        1303.9517822265625
+      ],
+      "size": [
+        427.8110656738281,
+        88
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "This model needs long descriptive prompts, if the prompt is too short the quality will suffer greatly."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        264.5801696777344,
+        1141.4891357421875
+      ],
+      "size": [
+        419.392578125,
+        110.44114685058594
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            188
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 95,
+      "type": "Note",
+      "pos": [
+        272.1598815917969,
+        843.93603515625
+      ],
+      "size": [
+        420.1555480957031,
+        88
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "The LLM API nodes are both disabled by default but can be enabled by right clicking on the node and tapping \"Bypass\"."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        350.3890380859375,
+        89.42263793945312
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            75,
+            220
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "ltxv",
+        "default"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        822.9939575195312,
+        490.8341979980469
+      ],
+      "size": [
+        412.981689453125,
+        78
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 221
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "pos": [
+            10,
+            36
+          ],
+          "widget": {
+            "name": "text"
+          },
+          "link": 194
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            187
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "best quality, 4k, HDR, Will Smith sitting at a rustic Italian restaurant, a plate of spaghetti piled high in front of him. With a playful grin, he twirls the spaghetti around his fork, the rich marinara sauce glistening under the warm light. As he takes a big bite, his eyes widen in delight, and he exclaims about the deliciousness of the dish."
+      ]
+    },
+    {
+      "id": 102,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1888.192626953125,
+        17.21710968017578
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            222
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "1x-SwatKatsLite.pth"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1606.16455078125,
+        214.93894958496094
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 217
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            223
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 88,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1542.117431640625,
+        321.9649658203125
+      ],
+      "size": [
+        705.6316528320312,
+        1033.631591796875
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "LATENT",
+          "link": 225
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": 226
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 50,
+        "filename_prefix": "LTX",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "LTX_00045.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "LTX_00045.png",
+            "fullpath": "C:\\Programs\\ComfyUI_main\\ComfyUI\\output\\LTX_00045.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 103,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1882.671142578125,
+        167.61795043945312
+      ],
+      "size": [
+        340.20001220703125,
+        46
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 222
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 223
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            225
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 44,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        279.416748046875,
+        -63.305721282958984
+      ],
+      "size": [
+        426.6404113769531,
+        98
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            218
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            87,
+            224,
+            226
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.5.safetensors"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 71,
+      "type": "LTXVScheduler",
+      "pos": [
+        1210.14306640625,
+        704.1075439453125
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "shape": 7,
+          "link": 185
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            213
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVScheduler"
+      },
+      "widgets_values": [
+        50,
+        2.05,
+        0.95,
+        true,
+        0.1
+      ]
+    },
+    {
+      "id": 101,
+      "type": "LoraLoader",
+      "pos": [
+        342.7889709472656,
+        246.2681884765625
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 218
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 220
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            219
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            221
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "boreal-hl-v1.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 96,
+      "type": "LTXVApplySTG",
+      "pos": [
+        784.8638305664062,
+        -74.72470092773438
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 219
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            211
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVApplySTG"
+      },
+      "widgets_values": [
+        "13"
+      ]
+    },
+    {
+      "id": 98,
+      "type": "STGGuider",
+      "pos": [
+        1179.2099609375,
+        -67.61911010742188
+      ],
+      "size": [
+        315,
+        146
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 211
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 209
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 210
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            215
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "STGGuider"
+      },
+      "widgets_values": [
+        4.5,
+        1,
+        0.8
+      ]
+    },
+    {
+      "id": 78,
+      "type": "LoadImage",
+      "pos": [
+        717.3565673828125,
+        621.2136840820312
+      ],
+      "size": [
+        480.29327392578125,
+        505.0567932128906
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            190,
+            204,
+            205
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "42527809.jpeg",
+        "image"
+      ]
+    },
+    {
+      "id": 89,
+      "type": "OllamaAPI",
+      "pos": [
+        270.9634094238281,
+        443.065185546875
+      ],
+      "size": [
+        412.2273254394531,
+        147.0147247314453
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 205
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            198,
+            206
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Ollama API - Prompt the model here",
+      "properties": {
+        "Node name for S&R": "OllamaAPI"
+      },
+      "widgets_values": [
+        "Analyze the current image and generate a new video prompt that correlates with the actions that could be taking place in the image. Please respond with the video prompt only, without any additional text.",
+        "llama3.1:8b-instruct-q8_0",
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 92,
+      "type": "DF_Text_Box",
+      "pos": [
+        261.01263427734375,
+        991.367919921875
+      ],
+      "size": [
+        428.4806213378906,
+        90.14613342285156
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            203
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "DF_Text_Box"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 90,
+      "type": "GeminiAPI",
+      "pos": [
+        268.7430114746094,
+        650.466064453125
+      ],
+      "size": [
+        419.360107421875,
+        150.071533203125
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": 204
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            199,
+            207
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Gemini API - Prompt the model here",
+      "properties": {
+        "Node name for S&R": "GeminiAPI"
+      },
+      "widgets_values": [
+        "Analyze the current image and generate a new video prompt that correlates with the actions that could be taking place in the image. Please respond with the video prompt only, without any additional text.",
+        "gemini-1.5-flash",
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 94,
+      "type": "ShowText|pysssss",
+      "pos": [
+        731.7930297851562,
+        280.25286865234375
+      ],
+      "size": [
+        427.0843505859375,
+        157.8568878173828
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "pos": [
+            10,
+            36
+          ],
+          "widget": {
+            "name": "text"
+          },
+          "link": 199
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 6,
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "title": "Gemini API Output(Cannot be edited)",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "A cyberpunk woman with pink hair, wearing a shimmering bodysuit, stands on a rooftop overlooking a futuristic cityscape at sunset.  She looks directly at the camera, a confident and powerful expression on her face.  The camera slowly pans around her, showcasing the intricate details of her outfit and the vast, sprawling city behind her.  The scene is bathed in warm sunset hues, contrasting with the cool neon lights of the city.  A subtle, futuristic soundtrack plays in the background.\n"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    }
+  ],
+  "links": [
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      87,
+      44,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      183,
+      77,
+      0,
+      69,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      184,
+      77,
+      1,
+      69,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      185,
+      77,
+      2,
+      71,
+      0,
+      "LATENT"
+    ],
+    [
+      187,
+      6,
+      0,
+      77,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      188,
+      7,
+      0,
+      77,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      190,
+      78,
+      0,
+      77,
+      3,
+      "IMAGE"
+    ],
+    [
+      194,
+      91,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      198,
+      89,
+      0,
+      93,
+      0,
+      "STRING"
+    ],
+    [
+      199,
+      90,
+      0,
+      94,
+      0,
+      "STRING"
+    ],
+    [
+      203,
+      92,
+      0,
+      91,
+      0,
+      "STRING"
+    ],
+    [
+      204,
+      78,
+      0,
+      90,
+      0,
+      "IMAGE"
+    ],
+    [
+      205,
+      78,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ],
+    [
+      206,
+      89,
+      0,
+      91,
+      1,
+      "STRING"
+    ],
+    [
+      207,
+      90,
+      0,
+      91,
+      2,
+      "STRING"
+    ],
+    [
+      209,
+      69,
+      0,
+      98,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      210,
+      69,
+      1,
+      98,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      211,
+      96,
+      0,
+      98,
+      0,
+      "MODEL"
+    ],
+    [
+      212,
+      73,
+      0,
+      97,
+      2,
+      "SAMPLER"
+    ],
+    [
+      213,
+      71,
+      0,
+      97,
+      3,
+      "SIGMAS"
+    ],
+    [
+      214,
+      77,
+      2,
+      97,
+      4,
+      "LATENT"
+    ],
+    [
+      215,
+      98,
+      0,
+      97,
+      1,
+      "GUIDER"
+    ],
+    [
+      216,
+      99,
+      0,
+      97,
+      0,
+      "NOISE"
+    ],
+    [
+      217,
+      97,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      218,
+      44,
+      0,
+      101,
+      0,
+      "MODEL"
+    ],
+    [
+      219,
+      101,
+      0,
+      96,
+      0,
+      "MODEL"
+    ],
+    [
+      220,
+      38,
+      0,
+      101,
+      1,
+      "CLIP"
+    ],
+    [
+      221,
+      101,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      222,
+      102,
+      0,
+      103,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      223,
+      8,
+      0,
+      103,
+      1,
+      "IMAGE"
+    ],
+    [
+      224,
+      44,
+      2,
+      77,
+      2,
+      "VAE"
+    ],
+    [
+      225,
+      103,
+      0,
+      88,
+      0,
+      "IMAGE"
+    ],
+    [
+      226,
+      44,
+      2,
+      88,
+      3,
+      "VAE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "LTX Image-To-Video",
+      "bounding": [
+        222.02310180664062,
+        -187.49188232421875,
+        2109.903564453125,
+        1617.721435546875
+      ],
+      "color": "#444",
+      "font_size": 44,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7247295000000042,
+      "offset": [
+        39.81854702982243,
+        185.40687505134986
+      ]
+    },
+    "node_versions": {
+      "comfy-core": "0.3.22",
+      "ComfyUI-Universal-Styler": "bfe88489ff250a84bc25c210d84a58135f9a8a8f",
+      "was-node-suite-comfyui": "056badacda52e88d29d6a65f9509cd3115ace0f2",
+      "ComfyUI-VideoHelperSuite": "f24f4e10f448913eb8c0d8ce5ff6190a8be84454",
+      "ComfyUI-LTXVideo": "55f2d9ebb885a1bda63f1757080b4d7f8f7bb2f9",
+      "ComfyUI-OllamaGemini": "3c7f1109cfacec52fa18c8dc63b2521eb8656d17",
+      "Derfuu_ComfyUI_ModdedNodes": "d0905bed31249f2bd0814c67585cf4fe3c77c015"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}

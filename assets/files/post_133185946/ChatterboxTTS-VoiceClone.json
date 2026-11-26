@@ -1,0 +1,1963 @@
+{
+  "id": "95e06b1e-23aa-4e9c-8d68-9644f3bbe975",
+  "revision": 0,
+  "last_node_id": 111,
+  "last_link_id": 148,
+  "nodes": [
+    {
+      "id": 68,
+      "type": "VHS_VideoInfoLoaded",
+      "pos": [
+        -1573.9471435546875,
+        -211.29742431640625
+      ],
+      "size": [
+        241.98333740234375,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fps🟦",
+          "type": "FLOAT",
+          "links": [
+            99
+          ]
+        },
+        {
+          "name": "frame_count🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "duration🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "width🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height🟦",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Video Info",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_VideoInfoLoaded",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 38,
+      "type": "VHS_LoadAudio",
+      "pos": [
+        -1863.1605224609375,
+        -736.125
+      ],
+      "size": [
+        520,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_LoadAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {
+        "audio_file": "\"D:\\Desktop Stuff\\Flows\\TTSChatter\\songtests\\audio_985051_temp.wav\"",
+        "seek_seconds": 0
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 66,
+      "type": "VHS_AudioToVHSAudio",
+      "pos": [
+        -1572.110595703125,
+        -272.48358154296875
+      ],
+      "size": [
+        295.8999938964844,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vhs_audio",
+          "type": "VHS_AUDIO",
+          "links": [
+            75
+          ]
+        }
+      ],
+      "title": "Audio Fix",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_AudioToVHSAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 67,
+      "type": "VHS_VHSAudioToAudio",
+      "pos": [
+        -1410.8892822265625,
+        -266.97393798828125
+      ],
+      "size": [
+        300.566650390625,
+        26
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 24,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "vhs_audio",
+          "type": "VHS_AUDIO",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            121
+          ]
+        }
+      ],
+      "title": "Audio Fix",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_VHSAudioToAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 77,
+      "type": "GetNode",
+      "pos": [
+        642.1363525390625,
+        -15.192851066589355
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            100
+          ]
+        }
+      ],
+      "title": "Get_FPS",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "FPS"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 70,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        -1240.4857177734375,
+        -404.4255065917969
+      ],
+      "size": [
+        240.86724853515625,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "AUDIO",
+          "link": 121
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "AUDIO",
+          "link": 83
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "AUDIO",
+          "link": 85
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "any_05",
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "AUDIO",
+          "name": "*",
+          "shape": 3,
+          "type": "AUDIO",
+          "links": [
+            134
+          ]
+        }
+      ],
+      "title": "Switch",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "5dc53323e07a021038af9f2a4a06ebc071f7218c",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 43,
+      "type": "GetNode",
+      "pos": [
+        -469.06500244140625,
+        -774.94384765625
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            58
+          ]
+        }
+      ],
+      "title": "Get_Voice",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Voice"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "PreviewAudio",
+      "pos": [
+        -479.0650329589844,
+        -904.94384765625
+      ],
+      "size": [
+        540,
+        88
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 2
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1,
+      "type": "FL_ChatterboxTTS",
+      "pos": [
+        -479.0650329589844,
+        -724.94384765625
+      ],
+      "size": [
+        540,
+        310
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio_prompt",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 58
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            2,
+            113
+          ]
+        },
+        {
+          "name": "message",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "filliptm/ComfyUI_Fill-ChatterBox",
+        "ver": "d900801d38b6b9a03f7768f8f7c6d80ececd3849",
+        "Node name for S&R": "FL_ChatterboxTTS",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "It uses a lightweight GGUF version of the Kontext model, which means you can get some really fast generations even on lower VRAM setups. ",
+        0.8,
+        1,
+        0.8,
+        2345039188,
+        "randomize",
+        false,
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 104,
+      "type": "PreviewAudio",
+      "pos": [
+        832.9129028320312,
+        -457.07183837890625
+      ],
+      "size": [
+        330,
+        88
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 135
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.42",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 59,
+      "type": "PreviewAudio",
+      "pos": [
+        -316.45538330078125,
+        -204.1964111328125
+      ],
+      "size": [
+        370,
+        100
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 139
+        }
+      ],
+      "outputs": [],
+      "title": "Before",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 55,
+      "type": "PreviewAudio",
+      "pos": [
+        -315.03924560546875,
+        -63.48834228515625
+      ],
+      "size": [
+        370,
+        100
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 64
+        }
+      ],
+      "outputs": [],
+      "title": "Voice Changed Audio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 110,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        -839.6038208007812,
+        -109.02129364013672
+      ],
+      "size": [
+        266.6139221191406,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            139,
+            141
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_LoadAudioUpload",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {
+        "audio": "cole3.mp3",
+        "start_time": 0,
+        "duration": 0,
+        "choose audio to upload": "image"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 18,
+      "type": "Audio Stack (mtb)",
+      "pos": [
+        -80.48624420166016,
+        420.3385314941406
+      ],
+      "size": [
+        171,
+        66
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 2,
+      "inputs": [
+        {
+          "label": "audio_1",
+          "name": "audio_1",
+          "type": "AUDIO",
+          "link": 21
+        },
+        {
+          "label": "audio_2",
+          "name": "audio_2",
+          "type": "AUDIO",
+          "link": 22
+        },
+        {
+          "name": "audio_3",
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stacked_audio",
+          "type": "AUDIO",
+          "links": [
+            23,
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-mtb",
+        "ver": "bc5b6134904243799121af6c493126bcf7a20e0a",
+        "Node name for S&R": "Audio Stack (mtb)",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 111,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        -848.8642578125,
+        234.06898498535156
+      ],
+      "size": [
+        302.993408203125,
+        140.28115844726562
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            143
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_LoadAudioUpload",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {
+        "audio": "jcole-song.mp3",
+        "start_time": 0,
+        "duration": 0,
+        "choose audio to upload": "image"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 11,
+      "type": "PreviewAudio",
+      "pos": [
+        -262.26806640625,
+        167.10748291015625
+      ],
+      "size": [
+        340,
+        88
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "title": "Vocals",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 16,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        -1878.013671875,
+        -519.3819580078125
+      ],
+      "size": [
+        520,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_LoadAudioUpload",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {
+        "audio": "DonaldMP3.mp3",
+        "start_time": 0,
+        "duration": 0,
+        "choose audio to upload": "image"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 52,
+      "type": "FL_ChatterboxVC",
+      "pos": [
+        -308.4729309082031,
+        -247.61746215820312
+      ],
+      "size": [
+        272,
+        142
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input_audio",
+          "type": "AUDIO",
+          "link": 141
+        },
+        {
+          "name": "target_voice",
+          "type": "AUDIO",
+          "link": 142
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            64,
+            115
+          ]
+        },
+        {
+          "name": "message",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "filliptm/ComfyUI_Fill-ChatterBox",
+        "ver": "d900801d38b6b9a03f7768f8f7c6d80ececd3849",
+        "Node name for S&R": "FL_ChatterboxVC",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        0,
+        false,
+        false,
+        false
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 63,
+      "type": "VHS_LoadVideoFFmpeg",
+      "pos": [
+        -1603.9471435546875,
+        -171.2975616455078
+      ],
+      "size": [
+        306.142333984375,
+        415.1905517578125
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            71
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            74
+          ]
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [
+            79
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_LoadVideoFFmpeg",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": {
+        "video": "OmniHuman-1 AI Video - sing7 (720p_25fps_H264-128kbit_AAC).mp4",
+        "force_rate": 0,
+        "force_size": "Disabled",
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 1500,
+        "start_time": 0,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "OmniHuman-1 AI Video - sing7 (720p_25fps_H264-128kbit_AAC).mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 1500,
+            "start_time": 0
+          },
+          "muted": true
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "PreviewAudio",
+      "pos": [
+        -258.2304992675781,
+        295.6143798828125
+      ],
+      "size": [
+        340,
+        88
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 144
+        }
+      ],
+      "outputs": [],
+      "title": "Voice Changed Audio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 19,
+      "type": "PreviewAudio",
+      "pos": [
+        -262.26806640625,
+        467.1075439453125
+      ],
+      "size": [
+        340,
+        88
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 23
+        }
+      ],
+      "outputs": [],
+      "title": "Remerged Audio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "PreviewAudio",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 41,
+      "type": "PrimitiveNode",
+      "pos": [
+        -502.26806640625,
+        277.10748291015625
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "use_cpu"
+          },
+          "links": [
+            55
+          ]
+        }
+      ],
+      "title": "use_cpu",
+      "properties": {
+        "Run widget replace on values": false,
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 8,
+      "type": "VocalAndSoundRemoverNode",
+      "pos": [
+        -502.26806640625,
+        185.3675537109375
+      ],
+      "size": [
+        214.12896728515625,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input_sound",
+          "type": "AUDIO",
+          "link": 143
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vocals",
+          "type": "AUDIO",
+          "links": [
+            11,
+            148
+          ]
+        },
+        {
+          "name": "Background",
+          "type": "AUDIO",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-DeepExtract",
+        "ver": "b2cd6d6ddc6dfd85cf0e40dd7eb401ba774a6cd1",
+        "Node name for S&R": "VocalAndSoundRemoverNode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 6,
+      "type": "FL_ChatterboxVC",
+      "pos": [
+        -265.5254821777344,
+        423.4381408691406
+      ],
+      "size": [
+        272,
+        150
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input_audio",
+          "type": "AUDIO",
+          "link": 148
+        },
+        {
+          "name": "target_voice",
+          "type": "AUDIO",
+          "link": 147
+        },
+        {
+          "name": "use_cpu",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "use_cpu"
+          },
+          "link": 55
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            22,
+            144
+          ]
+        },
+        {
+          "name": "message",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "filliptm/ComfyUI_Fill-ChatterBox",
+        "ver": "d900801d38b6b9a03f7768f8f7c6d80ececd3849",
+        "Node name for S&R": "FL_ChatterboxVC",
+        "widget_ue_connectable": {
+          "use_cpu": true
+        }
+      },
+      "widgets_values": [
+        1757812810,
+        "randomize",
+        false,
+        false
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 40,
+      "type": "GetNode",
+      "pos": [
+        -484.40985107421875,
+        422.2278137207031
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            147
+          ]
+        }
+      ],
+      "title": "Get_Voice",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Voice"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 64,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        842.3427734375,
+        -301.85394287109375
+      ],
+      "size": [
+        319.140625,
+        518.6036376953125
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 71
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 96
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 100
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "598e181e97d50174cc18677dfcdaa7b9b6ec0cb2",
+        "Node name for S&R": "VHS_VideoCombine",
+        "widget_ue_connectable": {
+          "frame_rate": true
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "Chatterbox",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Chatterbox_00001-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 1,
+            "workflow": "Chatterbox_00001.png",
+            "fullpath": "C:\\Programs\\ComfyUI_main\\ComfyUI\\output\\Chatterbox_00001-audio.mp4"
+          },
+          "muted": true
+        }
+      }
+    },
+    {
+      "id": 76,
+      "type": "SetNode",
+      "pos": [
+        -1443.9471435546875,
+        -211.29742431640625
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_FPS",
+      "properties": {
+        "previousName": "FPS",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "FPS"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 75,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        217.67684936523438,
+        -360.8443908691406
+      ],
+      "size": [
+        250.04998779296875,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "AUDIO",
+          "link": 113
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "AUDIO",
+          "link": 115
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "AUDIO",
+          "link": 116
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "any_05",
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "AUDIO",
+          "name": "*",
+          "shape": 3,
+          "type": "AUDIO",
+          "links": [
+            96,
+            98,
+            135
+          ]
+        }
+      ],
+      "title": "Switch",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "5dc53323e07a021038af9f2a4a06ebc071f7218c",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 88,
+      "type": "Note",
+      "pos": [
+        -2010.7891845703125,
+        -117.88290405273438
+      ],
+      "size": [
+        370.4910583496094,
+        215.22286987304688
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "This section allows you to load audio from three different sources:\n\n- Directory Path: Load your audio file by specifying its directory path.\n\n- Upload Audio: The easiest method—simply use the \"Upload Audio\" feature to upload your file directly.\n\n- Load from Video: Use the \"Load Video\" feature to extract the audio from a video file for conversion.\n\nBefore proceeding, make sure to enable or disable the feature you intend to use by toggling the appropriate option in the \"Disable/Enable Feature\" node above. "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 103,
+      "type": "SetNode",
+      "pos": [
+        -1230.43017578125,
+        -240.45008850097656
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 134
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_Voice",
+      "properties": {
+        "widget_ue_connectable": {},
+        "previousName": "Voice"
+      },
+      "widgets_values": [
+        "Voice"
+      ]
+    },
+    {
+      "id": 85,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        -1997.333984375,
+        -305.9370422363281
+      ],
+      "size": [
+        350,
+        130
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Disable/Enable Cloning Section Features",
+      "properties": {
+        "matchColors": "Brown",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "max one",
+        "widget_ue_connectable": {}
+      },
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 89,
+      "type": "Note",
+      "pos": [
+        -927.8234252929688,
+        -819.6958618164062
+      ],
+      "size": [
+        401.3392639160156,
+        257.0516662597656
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Text to Speech:\nType the text you want to be spoken, and the model will generate audio using the voice you have loaded.\n\nVoice Change:\nThis feature attempts to change the voice in any newly uploaded audio file to match the original target voice you uploaded in the previous section.\n\nNote: The maximum audio length should not exceed 30–45 seconds.\n\nRemove Background Sounds and Voice Change:\nThis option will isolate the speakers from any newly uploaded audio file, remove background sounds, and change the voice to match the original target voice you uploaded in the previous section. This feature works especially well for songs or audio with background music.\n\nNote: The maximum audio length should not exceed 30–45 seconds, or you may encounter issues during processing."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 56,
+      "type": "SaveAudioMP3",
+      "pos": [
+        819.8038940429688,
+        -673.0525512695312
+      ],
+      "size": [
+        330,
+        136
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 98
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SaveAudioMP3",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "audio/chatter",
+        "320k"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 90,
+      "type": "Note",
+      "pos": [
+        521.0969848632812,
+        -506.3354187011719
+      ],
+      "size": [
+        287.6860046386719,
+        199.61679077148438
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "In this section, you have several options for saving and previewing your outputs:\n\n    Save as MP3: You can save your audio output as an MP3 file.\n\n    Preview Audio: Listen to your audio output before saving.\n\n    Save as Video: If you loaded a video source, you can save your output as a video. The new audio—whether generated by text-to-speech or voice change—will be combined with the original video.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 92,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        -914.40380859375,
+        -476.8237609863281
+      ],
+      "size": [
+        390,
+        130
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Speech Choices",
+      "properties": {
+        "matchColors": "Green",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "max one",
+        "widget_ue_connectable": {}
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 53,
+      "type": "GetNode",
+      "pos": [
+        -808.5026245117188,
+        -267.6986083984375
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            142
+          ]
+        }
+      ],
+      "title": "Get_Voice",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Voice"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "AUDIO"
+    ],
+    [
+      11,
+      8,
+      0,
+      11,
+      0,
+      "AUDIO"
+    ],
+    [
+      21,
+      8,
+      1,
+      18,
+      0,
+      "AUDIO"
+    ],
+    [
+      22,
+      6,
+      0,
+      18,
+      1,
+      "AUDIO"
+    ],
+    [
+      23,
+      18,
+      0,
+      19,
+      0,
+      "AUDIO"
+    ],
+    [
+      55,
+      41,
+      0,
+      6,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      58,
+      43,
+      0,
+      1,
+      0,
+      "AUDIO"
+    ],
+    [
+      64,
+      52,
+      0,
+      55,
+      0,
+      "AUDIO"
+    ],
+    [
+      71,
+      63,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      74,
+      63,
+      2,
+      66,
+      0,
+      "AUDIO"
+    ],
+    [
+      75,
+      66,
+      0,
+      67,
+      0,
+      "VHS_AUDIO"
+    ],
+    [
+      79,
+      63,
+      3,
+      68,
+      0,
+      "VHS_VIDEOINFO"
+    ],
+    [
+      83,
+      16,
+      0,
+      70,
+      1,
+      "AUDIO"
+    ],
+    [
+      85,
+      38,
+      0,
+      70,
+      2,
+      "AUDIO"
+    ],
+    [
+      96,
+      75,
+      0,
+      64,
+      1,
+      "AUDIO"
+    ],
+    [
+      98,
+      75,
+      0,
+      56,
+      0,
+      "AUDIO"
+    ],
+    [
+      99,
+      68,
+      0,
+      76,
+      0,
+      "*"
+    ],
+    [
+      100,
+      77,
+      0,
+      64,
+      4,
+      "FLOAT"
+    ],
+    [
+      113,
+      1,
+      0,
+      75,
+      0,
+      "AUDIO"
+    ],
+    [
+      115,
+      52,
+      0,
+      75,
+      1,
+      "AUDIO"
+    ],
+    [
+      116,
+      18,
+      0,
+      75,
+      2,
+      "AUDIO"
+    ],
+    [
+      121,
+      67,
+      0,
+      70,
+      0,
+      "AUDIO"
+    ],
+    [
+      134,
+      70,
+      0,
+      103,
+      0,
+      "*"
+    ],
+    [
+      135,
+      75,
+      0,
+      104,
+      0,
+      "AUDIO"
+    ],
+    [
+      139,
+      110,
+      0,
+      59,
+      0,
+      "AUDIO"
+    ],
+    [
+      141,
+      110,
+      0,
+      52,
+      0,
+      "AUDIO"
+    ],
+    [
+      142,
+      53,
+      0,
+      52,
+      1,
+      "AUDIO"
+    ],
+    [
+      143,
+      111,
+      0,
+      8,
+      0,
+      "AUDIO"
+    ],
+    [
+      144,
+      6,
+      0,
+      10,
+      0,
+      "AUDIO"
+    ],
+    [
+      147,
+      40,
+      0,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      148,
+      8,
+      0,
+      6,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Text to speech",
+      "bounding": [
+        -489.06500244140625,
+        -974.94384765625,
+        560,
+        620
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Upload Audio",
+      "bounding": [
+        -1888.013671875,
+        -589.3818969726562,
+        540,
+        210
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 13,
+      "title": "Upload Video w/ Audio",
+      "bounding": [
+        -1623.9471435546875,
+        -351.2972412109375,
+        346.2302551269531,
+        618.8877563476562
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 14,
+      "title": "Save and Preview Your Audio/Video",
+      "bounding": [
+        500.987548828125,
+        -806.6304931640625,
+        767.5435180664062,
+        1301.5731201171875
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 15,
+      "title": "Add Audio Directory Path",
+      "bounding": [
+        -1871.2764892578125,
+        -808.1983032226562,
+        540,
+        189.60000610351562
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 16,
+      "title": "Remove BG Sounds And Voice Change",
+      "bounding": [
+        -512.26806640625,
+        97.10749816894531,
+        610,
+        470
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 17,
+      "title": "Voice Change",
+      "bounding": [
+        -476.45538330078125,
+        -314.1964111328125,
+        540,
+        363.6000061035156
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 20,
+      "title": "Load In Your Audio File for Voice Clone",
+      "bounding": [
+        -2071.373046875,
+        -870.8572998046875,
+        1085.8218994140625,
+        1171.6007080078125
+      ],
+      "color": "#A88",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 21,
+      "title": "Voice Clone Section",
+      "bounding": [
+        -941.2879638671875,
+        -1029.4049072265625,
+        1079.311767578125,
+        1631.033203125
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4950000000000024,
+      "offset": [
+        2251.5877392494076,
+        807.460508034565
+      ]
+    },
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}

@@ -1,0 +1,774 @@
+{
+  "last_node_id": 51,
+  "last_link_id": 65,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "HyVideoSampler",
+      "pos": [
+        266,
+        -139.72630310058594
+      ],
+      "size": [
+        315,
+        334
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "HYVIDEOMODEL",
+          "link": 2
+        },
+        {
+          "name": "hyvid_embeds",
+          "type": "HYVIDEMBEDS",
+          "link": 36
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "stg_args",
+          "type": "STGARGS",
+          "link": 51,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoSampler"
+      },
+      "widgets_values": [
+        512,
+        320,
+        85,
+        30,
+        6,
+        9,
+        6,
+        "fixed",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 34,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        651.034912109375,
+        -73.4482192993164
+      ],
+      "size": [
+        580.7774658203125,
+        310
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "LATENT",
+          "link": 42
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 54,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 16,
+        "loop_count": 0,
+        "filename_prefix": "HunyuanVideo",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "HunyuanVideo_00009.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 16
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "HyVideoDecode",
+      "pos": [
+        651,
+        -267.5721740722656
+      ],
+      "size": [
+        333.84954833984375,
+        150
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 6
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoDecode"
+      },
+      "widgets_values": [
+        true,
+        8,
+        256,
+        true
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 7,
+      "type": "HyVideoVAELoader",
+      "pos": [
+        -220.4314422607422,
+        -309.6315002441406
+      ],
+      "size": [
+        379.166748046875,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            6,
+            54
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoVAELoader"
+      },
+      "widgets_values": [
+        "hunyuan_video_vae_fp32.safetensors",
+        "fp32"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 46,
+      "type": "JjkShowText",
+      "pos": [
+        233.13626098632812,
+        487.2019958496094
+      ],
+      "size": [
+        405.3158264160156,
+        180.7368621826172
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 62,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkShowText"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 30,
+      "type": "HyVideoTextEncode",
+      "pos": [
+        225.7261505126953,
+        248.21034240722656
+      ],
+      "size": [
+        408.91546630859375,
+        172.84060668945312
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_encoders",
+          "type": "HYVIDTEXTENCODER",
+          "link": 35
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 65,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "clip_l",
+          "type": "CLIP",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "custom_prompt_template",
+          "type": "PROMPT_TEMPLATE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hyvid_embeds",
+          "type": "HYVIDEMBEDS",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoTextEncode"
+      },
+      "widgets_values": [
+        "high quality nature video of a red panda balancing on a bamboo stick while a bird lands on the panda's head, there's a waterfall in the background",
+        "bad quality video",
+        "video"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "HyVideoSTG",
+      "pos": [
+        -196.16055297851562,
+        303.65185546875
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "stg_args",
+          "type": "STGARGS",
+          "links": [
+            51
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoSTG"
+      },
+      "widgets_values": [
+        "STG-R",
+        0,
+        1,
+        0,
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1,
+      "type": "HyVideoModelLoader",
+      "pos": [
+        -248.62057495117188,
+        -172.4310302734375
+      ],
+      "size": [
+        426.1773986816406,
+        174
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "compile_args",
+          "type": "COMPILEARGS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "block_swap_args",
+          "type": "BLOCKSWAPARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "HYVIDEOMODEL",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HyVideoModelLoader"
+      },
+      "widgets_values": [
+        "hunyuan_video_720_fp8_e4m3fn.safetensors",
+        "bf16",
+        "fp8_e4m3fn",
+        "offload_device",
+        "sageattn_varlen"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "DownloadAndLoadHyVideoTextEncoder",
+      "pos": [
+        -265.2938232421875,
+        63.669471740722656
+      ],
+      "size": [
+        441,
+        178
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hyvid_text_encoder",
+          "type": "HYVIDTEXTENCODER",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadHyVideoTextEncoder"
+      },
+      "widgets_values": [
+        "Kijai/llava-llama-3-8b-text-encoder-tokenizer",
+        "openai/clip-vit-large-patch14",
+        "fp16",
+        false,
+        2,
+        "disabled"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 48,
+      "type": "JjkText",
+      "pos": [
+        -226.05133056640625,
+        768.863525390625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            63
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "JjkText"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 47,
+      "type": "OllamaAPI",
+      "pos": [
+        -229.0643768310547,
+        514.5704956054688
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            62,
+            64
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaAPI"
+      },
+      "widgets_values": [
+        "Create a video generation prompt for a high quality short stock video. Please respond with the video prompt only, without any additional text.",
+        "llama3.2-vision:latest",
+        0
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 50,
+      "type": "JjkConcat",
+      "pos": [
+        269.8620910644531,
+        740.27001953125
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text1",
+          "type": "STRING",
+          "link": 63,
+          "widget": {
+            "name": "text1"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text2",
+          "type": "STRING",
+          "link": 64,
+          "widget": {
+            "name": "text2"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text3",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text3"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text4",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text4"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text5",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text5"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            65
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JjkConcat"
+      },
+      "widgets_values": [
+        "none",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 51,
+      "type": "Note",
+      "pos": [
+        243.53643798828125,
+        802.6757202148438
+      ],
+      "size": [
+        273.6850891113281,
+        86.83740234375
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "You can enable/disable the Ollama API by right clicking on the node and clicking \"bypass\" and use the positive prompt node for your prompts."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "HYVIDEOMODEL"
+    ],
+    [
+      4,
+      3,
+      0,
+      5,
+      1,
+      "LATENT"
+    ],
+    [
+      6,
+      7,
+      0,
+      5,
+      0,
+      "VAE"
+    ],
+    [
+      35,
+      16,
+      0,
+      30,
+      0,
+      "HYVIDTEXTENCODER"
+    ],
+    [
+      36,
+      30,
+      0,
+      3,
+      1,
+      "HYVIDEMBEDS"
+    ],
+    [
+      42,
+      5,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      41,
+      0,
+      3,
+      3,
+      "STGARGS"
+    ],
+    [
+      54,
+      7,
+      0,
+      34,
+      3,
+      "VAE"
+    ],
+    [
+      62,
+      47,
+      0,
+      46,
+      0,
+      "STRING"
+    ],
+    [
+      63,
+      48,
+      0,
+      50,
+      0,
+      "STRING"
+    ],
+    [
+      64,
+      47,
+      0,
+      50,
+      1,
+      "STRING"
+    ],
+    [
+      65,
+      50,
+      0,
+      30,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "HunyuanVideo Text To Video",
+      "bounding": [
+        -349.2063903808594,
+        -401.488525390625,
+        1658.8133544921875,
+        1390.0208740234375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5131581182307069,
+      "offset": [
+        569.8147622242865,
+        441.927286559728
+      ]
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,6 @@
+pydub
+pandas
+datasets
+gradio
+transformers
+renumics-spotlight==1.6.14
